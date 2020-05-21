@@ -68,6 +68,25 @@ for h in (f, g):
 	
 	#My header that I use
 	h.write("""<iframe id="header" src="header.htm" frameBorder="0" scrolling="no"></iframe>\n""")
+
+	if h == f:
+		f.write("""<div id="language">\n""")
+		f.write("""<ul id="languageul">\n""")
+		f.write("""<li class="languageli"> <a href="gaelic/dealbhan.html" class="languagelink"><img src="gaelicflag.png" class="flag"><br>G&agrave;idhlig</a></li>\n""")
+		f.write("""<li class="languageli"><a href="photos.html" class="languagelink"><img src="englishflag.png" class="flag"><br> English</a></li>\n""")
+		f.write("""</ul> \n""")
+		f.write("""</div>\n""")
+		f.write("""<title>Amber Leamhnachd's Webpage</title>\n""")
+	if h == g:
+		g.write("""<div id="language">\n""")
+		g.write("""<ul id="languageul">\n""")
+		g.write("""<li class="languageli"> <a href="dealbhan.html" class="languagelink"><img src="../gaelicflag.png" class="flag"><br>G&agrave;idhlig</a></li>\n""")
+		g.write("""<li class="languageli"><a href="../photos.html" class="languagelink"><img src="../englishflag.png" class="flag"><br> English</a></li>\n""")
+		g.write("""</ul> \n""")
+		g.write("""</div>\n""")
+		g.write("""<title>Amber Leamhnachd's Webpage</title>\n""")
+
+
 	h.write("""<br>\n""")
 
 	#Open main div
@@ -217,7 +236,8 @@ for k in f_2, g_2:
 Pictures are free to use for personal projects if you see anything you like. Let me know if you do, it would give me the warm fuzzies. Actual photographers are always welcome to give me advice.<p> I use a Panasonic DMC-FZ72 and I mostly like photographing animals and nature. One day, I would like to get into astrophotography when I can get the equipment.<br><br>
 All dates are approximate. The script I use to generate this album can be found <a href="https://github.com/amberlennox/websitescripts/blob/master/photographypage.py" target="_blank">here</a>.<br><br> <img src="P1010006.JPG" style="width:300px; border: solid 1px black;margin:10px;">""")
 	if k == g_2:
-		g_2.write(""" <b>Is toil leam photography.</b><br><br> <img src="P1010006.JPG" style="width:300px; border: solid 1px black;margin:10px;"> """)
+		g_2.write(""" <b><br><br> Is toil leam photography. Tha camera agam agus d&egrave;anmh e a' cordadh rium.</b><br><br>
+ Ma faicinn thu rud sam bith 's toigh leat, tha na photothan saor. 'S toil leam <br><br> <img src="P1010006.JPG" style="width:300px; border: solid 1px black;margin:10px;"> """)
 f_2.close()
 g_2.close()
 
