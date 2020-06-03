@@ -36,7 +36,9 @@ h2{padding:5px; font-family: Arial, Helvetica, sans-serif; color:#8D7144 ;}
 .wrapper{width: 100%;background-color:rgba(255, 255, 255, 0.8);}
 
 
-.album{height:140px;border:solid 1px #999;margin:3px;}
+.album{	
+	-webkit-filter: grayscale(100%) !important;
+	filter: grayscale(100%) !important; height:140px;border:solid 1px #999;margin:3px;}
 
 /* The main div */
 .main{width:80%;font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; font-size:15px;text-align:justify; overflow-x: hidden;padding:30px;background-color:rgba(255, 255, 255, 0.7); width:100%;color:#443201;}
@@ -46,4 +48,32 @@ h2{padding:5px; font-family: Arial, Helvetica, sans-serif; color:#8D7144 ;}
 
 
 /* The Links on the photo page */
-.photolinks{font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; font-size:25px;color:#443201; font-variant: small-caps;}
+.photolinks{ font-family: Arial, Helvetica, sans-serif; font-size:20px;color:#443201; font-variant: small-caps;}
+
+
+.monthul{list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:rgba(157, 140, 92, 0.5);}
+
+.monthlinks a{float:left;#}
+
+.monthlinks a{display: block;
+  color: white;
+  text-align: center;
+  padding: 10px 36px;
+  text-decoration: none;	-webkit-filter: grayscale(60%) !important;
+	filter: grayscale(60%) !important;}
+
+.monthlinks a:hover{background-color:rgba(117, 104, 68, 0.9);color:#443201; 	-webkit-filter: grayscale(0) !important;
+	filter: grayscale(0) !important;}
+
+.myphotos{
+
+}
+
+.myphotos:hover {
+	-webkit-filter: grayscale(0) !important;
+	filter: grayscale(0) !important;
+}

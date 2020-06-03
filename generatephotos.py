@@ -192,11 +192,11 @@ for h in (f, g):
 
 		#Write the navigational list of albums
 		if h == f:
-			f.write("""<tr><td><img src="Photos/%s/%s" style="width:130px;float:right;border: solid 1px black;"></td>\n""" %(i,thumb)) 
+			f.write("""<tr><td><img src="Photos/%s/%s" style="width:80px;float:right;border: solid 1px black;"></td>\n""" %(i,thumb)) 
 			f.write("""<td><a href="Photos/%s/page.html" target="pictureframe" class="photolinks">%s %s</a></td></tr>\n""" %(i, english[month], year))
 
 		if h == g:
-			g.write("""<tr><td><img src="../Photos/%s/%s" style="width:130px;float:right;border: solid 1px black;"></td>\n""" %(i,thumb)) 
+			g.write("""<tr><td><img src="../Photos/%s/%s" style="width:80px;float:right;border: solid 1px black;"></td>\n""" %(i,thumb)) 
 			g.write("""<td><a href="../Photos/%s/page.html" target="pictureframe" class="photolinks">%s %s</a></td></tr>\n""" %(i, gaelic[month], year))
 		
 		#Close the subfolder's page
