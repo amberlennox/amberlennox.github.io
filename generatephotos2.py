@@ -197,7 +197,7 @@ for h in (f, g):
 
 		if h == g:
 			g.write("""<li class="monthlinks"><a href="../Photos/%s/page.html" target="pictureframe" class="photolinks"><br> """ %(i))
-			g.write("""<img src="../Photos/%s/%s" style="width:120px;border: solid 1px black;" class="myphotos">\n""" %(i,thumb)) 
+			g.write("""<img src="../Photos/%s/%s" style="width:120px;border: solid 1px black;" class="myphotos"><br>\n""" %(i,thumb)) 
 			g.write("""%s</a></li>\n""" %(gaelic[month]))
 		
 		#Close the subfolder's page

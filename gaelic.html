@@ -32,6 +32,8 @@
 <div class="mytext">
 
 Prepositional pronouns refer to the combination of a preposition + pronoun (such as 'on me,' 'at you,' 'in it') etc. There are several of these combinations in Gaelic, so I created this quiz in python to test on various combinations. I thought it might be of use to other learners, so I transferred it to javascript. Many thanks to <a href="https://www.taic.me.uk/">taic.me.uk</a>
+<br><br>
+To use the quiz, just check the pronouns you would like to test yourself on from the list below and refresh the page! A cheat sheet is down below.
 <h1>Prepositional Pronoun Quiz</h1>
 
 
@@ -90,11 +92,10 @@ Test me on: <br>
 <label for="thar">thar</label> 
 <input type="checkbox" id="tro" onclick="checkBox('tro')"> 
 <label for="tro">tro</label> 
-<br><br>
-Just check the pronouns you would like to test yourself on and refresh the page!
-<br>
+
+<br><br><br><br><br><br><br><br><br><br>
 <center>
-<test></test>
+<b>Cheat Sheet</b>
 <table>
 <tr>
 	<td><b></b></td>
@@ -405,7 +406,7 @@ function getCombo() {
    //console.log(pronoun);
    var prep_pronoun = prepositions[random_preposition][random_pronoun];
    //console.log(prep_pronoun);
-   var url = ('/pronouns/'+(preposition)+'/'+prep_pronoun+'.mp3');
+   var url = '/pronouns/'+(preposition)+'/'+prep_pronoun+'.mp3';
    //console.log(url);
    return [preposition, pronoun, prep_pronoun, url];
 };
