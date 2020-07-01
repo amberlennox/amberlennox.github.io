@@ -377,6 +377,7 @@ function addPreposition(myinput) {
 
 function validateAnswer() {
 	var x = document.forms["pronounQuiz"]["answer"].value;
+	x = x.toLowerCase() 
 	//alert("you wrote");
 	const result = document.querySelector('result');
 	if (x == a[2]) {
