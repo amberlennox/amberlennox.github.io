@@ -38,7 +38,10 @@
    </form>
 <p><br>
 <input type="checkbox" id="aig" onclick="checkBox('aig')"> 
-<label for="aig">aig</label><br><br><test></test>
+<label for="aig">aig</label> <input type="checkbox" id="air" onclick="checkBox('air')"> 
+<label for="air">air</label> <br><br>
+
+<test></test>
 
 <br><br>
 <button type="button" onclick="savedata()">Save</button> 
@@ -61,17 +64,6 @@ function mysubmit() {
 	};
 }
 
-function savedata_old() {
-	var data = window.localStorage.getItem('aig');
-	const test2 = document.querySelector('big');
-	test2.textContent = data
-	if (data == 'true') {
-		document.getElementById("aig").checked = true;
-
-	} else {
-		document.getElementById("aig").checked = false;
-	}
-};
 
 function savedata() {
 	var data = window.localStorage.getItem('aig');
@@ -94,14 +86,7 @@ function checkBox(mystring) {
 	}
 }
 
-function checkBox_old() {
-	aig = document.getElementById('aig');
-        if(aig.checked == true){
-		window.localStorage.setItem('aig', true);
-	} else {
-		window.localStorage.setItem('aig', false);
-	}
-}
+
 
 function loaddata() {
 	//window.localStorage.setItem('key', 'boo');

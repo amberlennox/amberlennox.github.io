@@ -28,7 +28,7 @@
 </form>
 
 
- <form name="pronounQuiz" onsubmit="return validateAnswer()" action="" method="POST" onload="savedata()">
+ <form name="pronounQuiz" onsubmit="return validateAnswer()" action="" method="POST">
       	<font size="6"><preposition></preposition> + <pronoun></pronoun> = ?</font>
 	<br><br>
 	<input type="text" name="answer" id="answer" autofocus="autofocus"> <result></result>
@@ -37,8 +37,42 @@
 	<font size="3"><hint></hint> </font>
    </form>
 <p><br>
+Test me on: <br>
 <input type="checkbox" id="aig" onclick="checkBox('aig')"> 
-<label for="aig">aig</label><br><br><test></test>
+<label for="aig">aig</label> 
+<input type="checkbox" id="air" onclick="checkBox('air')"> 
+<label for="air">air</label> 
+<input type="checkbox" id="ann" onclick="checkBox('ann')"> 
+<label for="ainn">ann</label> 
+<input type="checkbox" id="as1" onclick="checkBox('as1')"> 
+<label for="as1">às</label> 
+<input type="checkbox" id="bho" onclick="checkBox('bho')"> 
+<label for="bho">bho</label> 
+<input type="checkbox" id="de" onclick="checkBox('de')"> 
+<label for="de">de</label> <br>
+<input type="checkbox" id="do1" onclick="checkBox('do1')"> 
+<label for="do1">do/dha</label> 
+<input type="checkbox" id="fo" onclick="checkBox('fo')"> 
+<label for="fo">fo</label> 
+<input type="checkbox" id="gu" onclick="checkBox('gu')"> 
+<label for="gu">gu/chun</label> 
+<input type="checkbox" id="le" onclick="checkBox('le')"> 
+<label for="le">le</label> 
+<input type="checkbox" id="mu" onclick="checkBox('mu')"> 
+<label for="mu">mu</label><br> 
+<input type="checkbox" id="o" onclick="checkBox('o')"> 
+<label for="o">o</label> 
+<input type="checkbox" id="ri" onclick="checkBox('ri')"> 
+<label for="ri">ri</label> 
+<input type="checkbox" id="ro" onclick="checkBox('ro')"> 
+<label for="ro">ro</label> 
+<input type="checkbox" id="thar" onclick="checkBox('thar')"> 
+<label for="thar">thar</label> 
+<input type="checkbox" id="tro" onclick="checkBox('tro')"> 
+<label for="tro">tro</label> 
+<br><br>
+
+<test></test>
 
 <br><br>
 <button type="button" onclick="savedata()">Save</button> 
@@ -61,28 +95,34 @@ function mysubmit() {
 	};
 }
 
-function savedata_old() {
-	var data = window.localStorage.getItem('aig');
-	const test2 = document.querySelector('big');
-	test2.textContent = data
-	if (data == 'true') {
-		document.getElementById("aig").checked = true;
-
-	} else {
-		document.getElementById("aig").checked = false;
-	}
-};
 
 function savedata() {
-	var data = window.localStorage.getItem('aig');
-	const test2 = document.querySelector('big');
-	test2.textContent = data
-	if (data == 'true') {
-		document.getElementById("aig").checked = true;
-
-	} else {
-		document.getElementById("aig").checked = false;
+	//window.var prepositions;
+	var all_prepositions = [aig, air, ann, as1, bho, de, do1, fo, gu, le, mu, o, ri, ro, thar, tro];
+	var all_strings = ['aig', 'air', 'ann', 'as1', 'bho', 'de', 'do1', 'fo', 'gu', 'le', 'mu', 'o', 'ri', 'ro', 'thar', 'tro'];
+	for (i=0; i <all_prepositions.length; i++) {
+		console.log(i)
+		var data = window.localStorage.getItem(all_strings[i]);
+		if (data == 'true') {
+			const result = document.querySelector('result');
+			document.getElementById(all_strings[i]).checked = true;
+			if (! prepositions.includes(all_prepositions[i])) {
+				prepositions.push(all_prepositions[i])
+				}
+		} else {
+			document.getElementById(all_strings[i]).checked = false;
+			if (prepositions.includes(all_prepositions[i])) {
+				var index = prepositions.indexOf(all_prepositions[i])
+				prepositions.splice(index, 1)
+				}
+		}
 	}
+	// REMOVE THIS
+	//const result = document.querySelector('result');
+	//result.textContent = prepositions;
+	window.localStorage.setItem('prepositions', prepositions);
+	newQuestion()
+	return [prepositions];
 };
 
 function checkBox(mystring) {
@@ -94,14 +134,7 @@ function checkBox(mystring) {
 	}
 }
 
-function checkBox_old() {
-	aig = document.getElementById('aig');
-        if(aig.checked == true){
-		window.localStorage.setItem('aig', true);
-	} else {
-		window.localStorage.setItem('aig', false);
-	}
-}
+
 
 function loaddata() {
 	//window.localStorage.setItem('key', 'boo');
@@ -183,19 +216,23 @@ var ro = ['ro', 'romham', 'romhad', 'roimhe', 'roimhpe', 'romhainn', 'romhaibh',
 var thar = ['thar','tharam', 'tharad', 'thairis', 'thairte', 'tharainn', 'tharaibh', 'tharta'];
 var tro = ['tro', 'tromham', 'tromhad', 'troimhe', 'troimhpe', 'tromhainn', 'tromhaibh', 'tromhpa'];
 
+var all_prepositions = [aig, air, ann, as1, bho, de, do1, fo, gu, le, mu, o, ri, ro, thar, tro];
+var all_strings = ['aig', 'air', 'ann', 'as1', 'bho', 'de', 'do1', 'fo', 'gu', 'le', 'mu', 'o', 'ri', 'ro', 'thar', 'tro'];
+
 var hintno = 0;
+//var prepositions = savedata() 
 var prepositions = [air];
 //var prepositions = [aig, air, ann, as1, bho, de, do1, fo, gu, le, mu, o, ri, ro, thar, tro];
 var pronouns = ['pronoun', 'mi', 'thu', 'e', 'i', 'sinn', 'sibh', 'iad'];
-var a = getCombo();
-preposition1 = a[0]
-pronoun1 = a[1]
+//var a = getCombo();
+//preposition1 = a[0]
+//pronoun1 = a[1]
 
 
-const preposition = document.querySelector('preposition');
-preposition.textContent = preposition1;
-const pronoun = document.querySelector('pronoun');
-pronoun.textContent = pronoun1;
+//const preposition = document.querySelector('preposition');
+//preposition.textContent = preposition1;
+//const pronoun = document.querySelector('pronoun');
+//pronoun.textContent = pronoun1;
 
 </script>
 </div>
