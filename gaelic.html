@@ -4,6 +4,28 @@
 	.pronoun_title{border: solid 1px black; padding:5px; background-color:#fff;}
 	.pronoun_cell{padding:5px}
 	.english_pronoun{background-color:rgba(255, 255, 255, 0.5); padding-left:10px;}
+	.accentbutton{        background-color: #CBBD94;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	.submitandhint{        background-color: #AEA179;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	#app{background-color:rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	#answer{ font-size:20px;}
 </style>
 
 <title>Amber Lennox's Webpage</title>
@@ -36,30 +58,28 @@ Prepositional pronouns refer to the combination of a preposition + pronoun (such
 To use the quiz, just check the pronouns you would like to test yourself on from the list below and refresh the page! A cheat sheet is down below.
 <h1>Prepositional Pronoun Quiz</h1>
 
-
-</form>
-
+<div>
 
  <form name="pronounQuiz" onsubmit="return validateAnswer()" action="">
       	<font size="6"><preposition></preposition> + <pronoun></pronoun> = ?</font>
 	<br><br>
 	<input type="text" name="answer" id="answer" autofocus="autofocus"> <result></result>
 	<br>
-	<button type="button" onclick="return validateAnswer()">Submit</button> <button type="button" onclick="giveHint()">Hint</button> 
+	<button type="button" onclick="return validateAnswer()" class="submitandhint">Submit</button> <button type="button" onclick="giveHint()" class="submitandhint">Hint</button> 
 	<font size="3"><hint></hint> </font>
    </form><br>
 
-<button type="button" onclick="return add_a()">à</button>
-<button type="button" onclick="return add_e()">è</button>
-<button type="button" onclick="return add_i()">ì</button>
-<button type="button" onclick="return add_o()">ò</button>
-<button type="button" onclick="return add_u()">ù</button>
+<button type="button" onclick="return add_a()" class="accentbutton">à</button>
+<button type="button" onclick="return add_e()" class="accentbutton">è</button>
+<button type="button" onclick="return add_i()" class="accentbutton">ì</button>
+<button type="button" onclick="return add_o()" class="accentbutton">ò</button>
+<button type="button" onclick="return add_u()" class="accentbutton">ù</button>
 
-<br><br>
+<br><br><font size="6">
 Current streak: <streak></streak><br>
-High Score: <high_score></high_score>
+High Score: <high_score></high_score></font>
 <p><br>
-Test me on: <br>
+<font size="5">Test me on: <br>
 <input type="checkbox" id="aig" onclick="checkBox('aig')"> 
 <label for="aig">aig</label> 
 <input type="checkbox" id="air" onclick="checkBox('air')"> 
@@ -92,7 +112,7 @@ Test me on: <br>
 <label for="thar">thar</label> 
 <input type="checkbox" id="tro" onclick="checkBox('tro')"> 
 <label for="tro">tro</label> 
-
+</font>
 <br><br><br><br><br><br><br><br><br><br>
 <center>
 <b>Cheat Sheet</b>
@@ -274,7 +294,7 @@ Test me on: <br>
 </table>
 </center>
 <br><br>
-
+</div>
 <script>
 
 function add_a() {
