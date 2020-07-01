@@ -15,6 +15,10 @@ body{background-image:url("Arran2.jpg"); background-size:100% 100%; padding:0px;
 
 .languageli:hover {background-color:rgba(117, 104, 68, 0.5);}
 
+a {
+  color:#777;
+  font-weight:bold;
+}
 
 #title-text a::after {
     content: "Amber Lennox's Webpage";

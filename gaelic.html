@@ -1,88 +1,329 @@
 <!DOCTYPE html>
 <style>
-@import "main.css"
+	@import "main.css";
+	.pronoun_title{border: solid 1px black; padding:5px; background-color:#fff;}
+	.pronoun_cell{padding:5px}
+	.english_pronoun{background-color:rgba(255, 255, 255, 0.5); padding-left:10px;}
 </style>
+
 <title>Amber Lennox's Webpage</title>
+
+
 <html>
+
 <body onload="savedata()">
 <iframe id="header" src="header.htm" frameBorder="0" scrolling="no"></iframe>
+
 <div id="language">
  <ul id="languageul">
-  <li class="languageli"><a href="gaelic/cosmeolas.html" class="languagelink"><img src="gaelicflag.png" class="flag"><br> G&agrave;idhlig</a></li>
+  <li class="languageli"><a href="gaelic/index.html" class="languagelink"><img src="gaelicflag.png" class="flag"><br> G&agrave;idhlig</a></li>
 
-  <li class="languageli"><a href="cosmology.html" class="languagelink"><img src="englishflag.png" class="flag"><br> English</a></li>
+  <li class="languageli"><a href="index.html" class="languagelink"><img src="englishflag.png" class="flag"><br> English</a></li>
 </ul> 
- 
-</div>
+ </div>
 <br>
+
 <meta charset="utf-8">
+
 <div class="main">
 <br>
+
 <center>
 <div class="mytext">
+
+Prepositional pronouns refer to the combination of a preposition + pronoun (such as 'on me,' 'at you,' 'in it') etc. There are several of these combinations in Gaelic, so I created this quiz in python to test on various combinations. I thought it might be of use to other learners, so I transferred it to javascript. Many thanks to <a href="https://www.taic.me.uk/">taic.me.uk</a>
 <h1>Prepositional Pronoun Quiz</h1>
-
-
 
 
 </form>
 
 
- <form name="pronounQuiz" onsubmit="return validateAnswer()" action="" method="POST" onload="savedata()">
+ <form name="pronounQuiz" onsubmit="return validateAnswer()" action="">
       	<font size="6"><preposition></preposition> + <pronoun></pronoun> = ?</font>
 	<br><br>
 	<input type="text" name="answer" id="answer" autofocus="autofocus"> <result></result>
 	<br>
 	<button type="button" onclick="return validateAnswer()">Submit</button> <button type="button" onclick="giveHint()">Hint</button> 
 	<font size="3"><hint></hint> </font>
-   </form>
-<p><br>
-<input type="checkbox" id="aig" onclick="checkBox('aig')"> 
-<label for="aig">aig</label><br><br><test></test>
+   </form><br>
+
+<button type="button" onclick="return add_a()">à</button>
+<button type="button" onclick="return add_e()">è</button>
+<button type="button" onclick="return add_i()">ì</button>
+<button type="button" onclick="return add_o()">ò</button>
+<button type="button" onclick="return add_u()">ù</button>
 
 <br><br>
-<button type="button" onclick="savedata()">Save</button> 
-<big></big>
+Current streak: <streak></streak><br>
+High Score: <high_score></high_score>
+<p><br>
+Test me on: <br>
+<input type="checkbox" id="aig" onclick="checkBox('aig')"> 
+<label for="aig">aig</label> 
+<input type="checkbox" id="air" onclick="checkBox('air')"> 
+<label for="air">air</label> 
+<input type="checkbox" id="ann" onclick="checkBox('ann')"> 
+<label for="ainn">ann</label> 
+<input type="checkbox" id="as1" onclick="checkBox('as1')"> 
+<label for="as1">às</label> 
+<input type="checkbox" id="bho" onclick="checkBox('bho')"> 
+<label for="bho">bho</label> 
+<input type="checkbox" id="de" onclick="checkBox('de')"> 
+<label for="de">de</label> <br>
+<input type="checkbox" id="do1" onclick="checkBox('do1')"> 
+<label for="do1">do/dha</label> 
+<input type="checkbox" id="fo" onclick="checkBox('fo')"> 
+<label for="fo">fo</label> 
+<input type="checkbox" id="gu" onclick="checkBox('gu')"> 
+<label for="gu">gu/chun</label> 
+<input type="checkbox" id="le" onclick="checkBox('le')"> 
+<label for="le">le</label> 
+<input type="checkbox" id="mu" onclick="checkBox('mu')"> 
+<label for="mu">mu</label><br> 
+<input type="checkbox" id="o" onclick="checkBox('o')"> 
+<label for="o">o</label> 
+<input type="checkbox" id="ri" onclick="checkBox('ri')"> 
+<label for="ri">ri</label> 
+<input type="checkbox" id="ro" onclick="checkBox('ro')"> 
+<label for="ro">ro</label> 
+<input type="checkbox" id="thar" onclick="checkBox('thar')"> 
+<label for="thar">thar</label> 
+<input type="checkbox" id="tro" onclick="checkBox('tro')"> 
+<label for="tro">tro</label> 
+<br><br>
+Just check the pronouns you would like to test yourself on and refresh the page!
+<br>
+<center>
+<test></test>
+<table>
+<tr>
+	<td><b></b></td>
+	<td class="pronoun_title"><b>mi</b></td>
+	<td class="pronoun_title"><b>thu</b></td>
+	<td class="pronoun_title"><b>e</b></td>
+	<td class="pronoun_title"><b>i</b></td>
+	<td class="pronoun_title"><b>sinn</b></td>
+	<td class="pronoun_title"><b>sibh</b></td>
+	<td class="pronoun_title"><b>iad</b></td>
+	<td><b></b></td>
+
+</tr>
+
+<tr>
+	<td class="pronoun_title"><b>aig</b></td>
+	<td class=pronoun_cell>agam</td>
+	<td class=pronoun_cell>agad</td>
+	<td class=pronoun_cell>aige</td>
+	<td class=pronoun_cell>aice</td>
+	<td class=pronoun_cell>againn</td>
+	<td class=pronoun_cell>agaibh</td>
+	<td class=pronoun_cell>aca</td>
+	<td class=english_pronoun><b>at</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>air</b></td>
+	<td class=pronoun_cell>orm</td>
+	<td class=pronoun_cell>ort</td>
+	<td class=pronoun_cell>air</td>
+	<td class=pronoun_cell>oirre</td>
+	<td class=pronoun_cell>oirnn</td>
+	<td class=pronoun_cell>oirbh</td>
+	<td class=pronoun_cell>orra</td>
+	<td class=english_pronoun><b>on</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>ann</b></td>
+	<td class=pronoun_cell>annam</td>
+	<td class=pronoun_cell>annad</td>
+	<td class=pronoun_cell>ann</td>
+	<td class=pronoun_cell>innte</td>
+	<td class=pronoun_cell>annainn</td>
+	<td class=pronoun_cell>annaibh</td>
+	<td class=pronoun_cell>annta</td>
+	<td class=english_pronoun><b>in</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>às</b></td>
+	<td class=pronoun_cell>asam</td>
+	<td class=pronoun_cell>asad</td>
+	<td class=pronoun_cell>às</td>
+	<td class=pronoun_cell>aiste</td>
+	<td class=pronoun_cell>asainn</td>
+	<td class=pronoun_cell>asaibh</td>
+	<td class=pronoun_cell>asta</td>
+	<td class=english_pronoun><b>out of</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>bho</b></td>
+	<td class=pronoun_cell>bhuam</td>
+	<td class=pronoun_cell>bhuat</td>
+	<td class=pronoun_cell>bhuaithe</td>
+	<td class=pronoun_cell>bhuaipe</td>
+	<td class=pronoun_cell>bhuainn</td>
+	<td class=pronoun_cell>bhuaibh</td>
+	<td class=pronoun_cell>bhuapa</td>
+	<td class=english_pronoun><b>from</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>de</b></td>
+	<td class=pronoun_cell>dhìom</td>
+	<td class=pronoun_cell>dhìot</td>
+	<td class=pronoun_cell>dheth</td>
+	<td class=pronoun_cell>dhith</td>
+	<td class=pronoun_cell>dhinn</td>
+	<td class=pronoun_cell>dhibh</td>
+	<td class=pronoun_cell>dhiubh</td>
+	<td class=english_pronoun><b>of/off</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>do</b></td>
+	<td class=pronoun_cell>dhomh</td>
+	<td class=pronoun_cell>dhut</td>
+	<td class=pronoun_cell>dha</td>
+	<td class=pronoun_cell>dhi</td>
+	<td class=pronoun_cell>dhuinn</td>
+	<td class=pronoun_cell>dhuibh</td>
+	<td class=pronoun_cell>dhaibh</td>
+	<td class=english_pronoun><b>to</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>fo</b></td>
+	<td class=pronoun_cell>fodham</td>
+	<td class=pronoun_cell>fodhad</td>
+	<td class=pronoun_cell>fodha</td>
+	<td class=pronoun_cell>foidhpe</td>
+	<td class=pronoun_cell>fodhainn</td>
+	<td class=pronoun_cell>fodhaibh</td>
+	<td class=pronoun_cell>fodhpa</td>
+	<td class=english_pronoun><b>under</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>gu</b></td>
+	<td class=pronoun_cell>thugam</td>
+	<td class=pronoun_cell>thugad</td>
+	<td class=pronoun_cell>thuige</td>
+	<td class=pronoun_cell>thuice</td>
+	<td class=pronoun_cell>thugainn</td>
+	<td class=pronoun_cell>thugaibh</td>
+	<td class=pronoun_cell>thuca</td>
+	<td class=english_pronoun><b>to/towards</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>le</b></td>
+	<td class=pronoun_cell>leam</td>
+	<td class=pronoun_cell>leat</td>
+	<td class=pronoun_cell>leis</td>
+	<td class=pronoun_cell>leatha</td>
+	<td class=pronoun_cell>leinn</td>
+	<td class=pronoun_cell>leibh</td>
+	<td class=pronoun_cell>leotha</td>
+	<td class=english_pronoun><b>with</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>mu</b></td>
+	<td class=pronoun_cell>umam</td>
+	<td class=pronoun_cell>umad</td>
+	<td class=pronoun_cell>uime</td>
+	<td class=pronoun_cell>uimpe</td>
+	<td class=pronoun_cell>umainn</td>
+	<td class=pronoun_cell>umaibh</td>
+	<td class=pronoun_cell>umpa</td>
+	<td class=english_pronoun><b>about</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>o</b></td>
+	<td class=pronoun_cell>uam</td>
+	<td class=pronoun_cell>uat</td>
+	<td class=pronoun_cell>uaithe</td>
+	<td class=pronoun_cell>uaipe</td>
+	<td class=pronoun_cell>uainn</td>
+	<td class=pronoun_cell>uaibh</td>
+	<td class=pronoun_cell>uapa</td>
+	<td class=english_pronoun><b>from</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>ri</b></td>
+	<td class=pronoun_cell>rium</td>
+	<td class=pronoun_cell>riut</td>
+	<td class=pronoun_cell>ris</td>
+	<td class=pronoun_cell>rithe</td>
+	<td class=pronoun_cell>rinn</td>
+	<td class=pronoun_cell>ribh</td>
+	<td class=pronoun_cell>riutha</td>
+	<td class=english_pronoun><b>to/against</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>ro</b></td>
+	<td class=pronoun_cell>romham</td>
+	<td class=pronoun_cell>romhad</td>
+	<td class=pronoun_cell>roimhe</td>
+	<td class=pronoun_cell>roimhpe</td>
+	<td class=pronoun_cell>romhainn</td>
+	<td class=pronoun_cell>romhaibh</td>
+	<td class=pronoun_cell>romhpa</td>
+	<td class=english_pronoun><b>before</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>thar</b></td>
+	<td class=pronoun_cell>tharam</td>
+	<td class=pronoun_cell>tharad</td>
+	<td class=pronoun_cell>thairis</td>
+	<td class=pronoun_cell>thairte</td>
+	<td class=pronoun_cell>tharainn</td>
+	<td class=pronoun_cell>tharaibh</td>
+	<td class=pronoun_cell>tharta</td>
+	<td class=english_pronoun><b>over</b></td>
+</tr><tr>
+	<td class="pronoun_title"><b>tro</b></td>
+	<td class=pronoun_cell>tromham</td>
+	<td class=pronoun_cell>tromhad</td>
+	<td class=pronoun_cell>troimhe</td>
+	<td class=pronoun_cell>troimhpe</td>
+	<td class=pronoun_cell>tromhainn</td>
+	<td class=pronoun_cell>tromhaibh</td>
+	<td class=pronoun_cell>tromhpa</td>
+	<td class=english_pronoun><b>through</b></td>
+</tr>
+</table>
+</center>
+<br><br>
 
 <script>
 
-function isCheck() {
-	var aig = window.localStorage.getItem('key');
-	if (aig == true) {
-		document.getElementById("aig").checked = true;
-	} else {
-		document.getElementById("aig").checked = false;
-	}
+function add_a() {
+	document.getElementById('answer').value = document.getElementById('answer').value + "à"
+}
+function add_e() {
+	document.getElementById('answer').value = document.getElementById('answer').value + "è"
+}
+function add_i() {
+	document.getElementById('answer').value = document.getElementById('answer').value + "ì"
+}
+function add_o() {
+	document.getElementById('answer').value = document.getElementById('answer').value + "ò"
+}
+function add_u() {
+	document.getElementById('answer').value = document.getElementById('answer').value + "ù"
 }
 
-function mysubmit() {
-	if (localStorage.getItem('aig') == true) {
-		document.getElementById("aig").checked = true;
-	};
-}
 
-function savedata_old() {
-	var data = window.localStorage.getItem('aig');
-	const test2 = document.querySelector('big');
-	test2.textContent = data
-	if (data == 'true') {
-		document.getElementById("aig").checked = true;
-
-	} else {
-		document.getElementById("aig").checked = false;
-	}
-};
 
 function savedata() {
-	var data = window.localStorage.getItem('aig');
-	const test2 = document.querySelector('big');
-	test2.textContent = data
-	if (data == 'true') {
-		document.getElementById("aig").checked = true;
-
-	} else {
-		document.getElementById("aig").checked = false;
+	for (i=0; i <all_prepositions.length; i++) {
+		console.log(i)
+		var data = window.localStorage.getItem(all_strings[i]);
+		if (data == 'true') {
+			const result = document.querySelector('result');
+			document.getElementById(all_strings[i]).checked = true;
+			if (! prepositions.includes(all_prepositions[i])) {
+				prepositions.push(all_prepositions[i])
+				}
+		} else {
+			document.getElementById(all_strings[i]).checked = false;
+			if (prepositions.includes(all_prepositions[i])) {
+				var index = prepositions.indexOf(all_prepositions[i])
+				prepositions.splice(index, 1)
+				}
+		}
 	}
+	// REMOVE THIS
+	//const result = document.querySelector('result');
+	//result.textContent = prepositions;
+	const mystreak = document.querySelector('streak');
+	mystreak.textContent = streak;
+
+	const myhigh_score = document.querySelector('high_score');
+	myhigh_score.textContent = high_score;
+
+	window.localStorage.setItem('prepositions', prepositions);
+	newQuestion()
+	return [prepositions];
 };
 
 function checkBox(mystring) {
@@ -94,14 +335,7 @@ function checkBox(mystring) {
 	}
 }
 
-function checkBox_old() {
-	aig = document.getElementById('aig');
-        if(aig.checked == true){
-		window.localStorage.setItem('aig', true);
-	} else {
-		window.localStorage.setItem('aig', false);
-	}
-}
+
 
 function loaddata() {
 	//window.localStorage.setItem('key', 'boo');
@@ -127,13 +361,23 @@ function validateAnswer() {
 	if (x == a[2]) {
 		result.style.color = "green"
 		result.textContent = "Correct!";
+		var audio = new Audio(a[3]);
+		audio.play();
+		streak++;
+		if (streak > high_score) {
+			window.localStorage.setItem('high_score', streak)
+			}
+		window.localStorage.setItem('streak', streak)
 		return true;	
 	} else {	
 		result.style.color = "red"
 		result.textContent = "Not quite!";
+		streak = 0;
+		window.localStorage.setItem('streak', streak)
 		return false;
 	}
 };
+
 
 function newQuestion() {
 	a = getCombo();
@@ -161,7 +405,7 @@ function getCombo() {
    //console.log(pronoun);
    var prep_pronoun = prepositions[random_preposition][random_pronoun];
    //console.log(prep_pronoun);
-   var url = ('pronouns/'+(preposition)+'/'+prep_pronoun+'.mp3');
+   var url = ('/pronouns/'+(preposition)+'/'+prep_pronoun+'.mp3');
    //console.log(url);
    return [preposition, pronoun, prep_pronoun, url];
 };
@@ -183,19 +427,38 @@ var ro = ['ro', 'romham', 'romhad', 'roimhe', 'roimhpe', 'romhainn', 'romhaibh',
 var thar = ['thar','tharam', 'tharad', 'thairis', 'thairte', 'tharainn', 'tharaibh', 'tharta'];
 var tro = ['tro', 'tromham', 'tromhad', 'troimhe', 'troimhpe', 'tromhainn', 'tromhaibh', 'tromhpa'];
 
+var all_prepositions = [aig, air, ann, as1, bho, de, do1, fo, gu, le, mu, o, ri, ro, thar, tro];
+var all_strings = ['aig', 'air', 'ann', 'as1', 'bho', 'de', 'do1', 'fo', 'gu', 'le', 'mu', 'o', 'ri', 'ro', 'thar', 'tro'];
+
+
+
+
+if (localStorage.getItem("streak") === null) {
+  	var streak = 0
+} else {
+	var streak = window.localStorage.getItem('streak')
+}
+
+if (localStorage.getItem("high_score") === null) {
+  	var high_score = 0
+} else {
+	var high_score = window.localStorage.getItem('high_score')
+}
+
 var hintno = 0;
+//var prepositions = savedata() 
 var prepositions = [air];
 //var prepositions = [aig, air, ann, as1, bho, de, do1, fo, gu, le, mu, o, ri, ro, thar, tro];
 var pronouns = ['pronoun', 'mi', 'thu', 'e', 'i', 'sinn', 'sibh', 'iad'];
-var a = getCombo();
-preposition1 = a[0]
-pronoun1 = a[1]
+//var a = getCombo();
+//preposition1 = a[0]
+//pronoun1 = a[1]
 
 
-const preposition = document.querySelector('preposition');
-preposition.textContent = preposition1;
-const pronoun = document.querySelector('pronoun');
-pronoun.textContent = pronoun1;
+//const preposition = document.querySelector('preposition');
+//preposition.textContent = preposition1;
+//const pronoun = document.querySelector('pronoun');
+//pronoun.textContent = pronoun1;
 
 </script>
 </div>
