@@ -112,10 +112,12 @@ function validateAnswer() {
 	if (x == a[2]) {
 		result.style.color = "green"
 		result.textContent = "Correct!";
+		streak++;
 		return true;	
 	} else {	
 		result.style.color = "red"
 		result.textContent = "Not quite!";
+		streak = 0;
 		return false;
 	}
 };
@@ -168,8 +170,10 @@ var ro = ['ro', 'romham', 'romhad', 'roimhe', 'roimhpe', 'romhainn', 'romhaibh',
 var thar = ['thar','tharam', 'tharad', 'thairis', 'thairte', 'tharainn', 'tharaibh', 'tharta'];
 var tro = ['tro', 'tromham', 'tromhad', 'troimhe', 'troimhpe', 'tromhainn', 'tromhaibh', 'tromhpa'];
 
+var streak = 0
+
 var hintno = 0;
-var prepositions = [air];
+var prepositions = [];
 //var prepositions = [aig, air, ann, as1, bho, de, do1, fo, gu, le, mu, o, ri, ro, thar, tro];
 var pronouns = ['pronoun', 'mi', 'thu', 'e', 'i', 'sinn', 'sibh', 'iad'];
 var a = getCombo();

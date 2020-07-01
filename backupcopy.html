@@ -35,7 +35,17 @@
 	<br>
 	<button type="button" onclick="return validateAnswer()">Submit</button> <button type="button" onclick="giveHint()">Hint</button> 
 	<font size="3"><hint></hint> </font>
-   </form>
+   </form><br>
+
+<button type="button" onclick="return add_a()">à</button>
+<button type="button" onclick="return add_e()">è</button>
+<button type="button" onclick="return add_i()">ì</button>
+<button type="button" onclick="return add_o()">ò</button>
+<button type="button" onclick="return add_u()">ù</button>
+
+<br><br>
+Current streak: <streak></streak><br>
+High Score: <high_score></high_score>
 <p><br>
 Test me on: <br>
 <input type="checkbox" id="aig" onclick="checkBox('aig')"> 
@@ -75,10 +85,24 @@ Test me on: <br>
 <test></test>
 
 <br><br>
-<button type="button" onclick="savedata()">Save</button> 
-<big></big>
 
 <script>
+
+function add_a() {
+	document.getElementById('answer').value = document.getElementById('answer').value + "à"
+}
+function add_e() {
+	document.getElementById('answer').value = document.getElementById('answer').value + "è"
+}
+function add_i() {
+	document.getElementById('answer').value = document.getElementById('answer').value + "ì"
+}
+function add_o() {
+	document.getElementById('answer').value = document.getElementById('answer').value + "ò"
+}
+function add_u() {
+	document.getElementById('answer').value = document.getElementById('answer').value + "ù"
+}
 
 function isCheck() {
 	var aig = window.localStorage.getItem('key');
@@ -120,6 +144,12 @@ function savedata() {
 	// REMOVE THIS
 	//const result = document.querySelector('result');
 	//result.textContent = prepositions;
+	const mystreak = document.querySelector('streak');
+	mystreak.textContent = streak;
+
+	const myhigh_score = document.querySelector('high_score');
+	myhigh_score.textContent = high_score;
+
 	window.localStorage.setItem('prepositions', prepositions);
 	newQuestion()
 	return [prepositions];
@@ -160,13 +190,23 @@ function validateAnswer() {
 	if (x == a[2]) {
 		result.style.color = "green"
 		result.textContent = "Correct!";
+		var audio = new Audio(a[3]);
+		audio.play();
+		streak++;
+		if (streak > high_score) {
+			window.localStorage.setItem('high_score', streak)
+			}
+		window.localStorage.setItem('streak', streak)
 		return true;	
 	} else {	
 		result.style.color = "red"
 		result.textContent = "Not quite!";
+		streak = 0;
+		window.localStorage.setItem('streak', streak)
 		return false;
 	}
 };
+
 
 function newQuestion() {
 	a = getCombo();
@@ -194,7 +234,7 @@ function getCombo() {
    //console.log(pronoun);
    var prep_pronoun = prepositions[random_preposition][random_pronoun];
    //console.log(prep_pronoun);
-   var url = ('pronouns/'+(preposition)+'/'+prep_pronoun+'.mp3');
+   var url = ('/pronouns/'+(preposition)+'/'+prep_pronoun+'.mp3');
    //console.log(url);
    return [preposition, pronoun, prep_pronoun, url];
 };
@@ -218,6 +258,21 @@ var tro = ['tro', 'tromham', 'tromhad', 'troimhe', 'troimhpe', 'tromhainn', 'tro
 
 var all_prepositions = [aig, air, ann, as1, bho, de, do1, fo, gu, le, mu, o, ri, ro, thar, tro];
 var all_strings = ['aig', 'air', 'ann', 'as1', 'bho', 'de', 'do1', 'fo', 'gu', 'le', 'mu', 'o', 'ri', 'ro', 'thar', 'tro'];
+
+
+
+
+if (localStorage.getItem("streak") === null) {
+  	var streak = 0
+} else {
+	var streak = window.localStorage.getItem('streak')
+}
+
+if (localStorage.getItem("high_score") === null) {
+  	var high_score = 0
+} else {
+	var high_score = window.localStorage.getItem('high_score')
+}
 
 var hintno = 0;
 //var prepositions = savedata() 
