@@ -210,8 +210,13 @@ for h in (f, g):
 	#Load up iframe
 	h.write("""<iframe name="pictureframe" src='%s' frameBorder="0" width="100%%" style="overflow:auto;height:700px;"></iframe><br><br> \n """ %(target))
 	
-
 	h.write("""</ul></div>""")
+
+	if h == f:
+		f.write("<br><font size=4>All photos are free for personal use, but please give credit back here and consider a donation to <a href='https://www.refuweegee.co.uk/'>Refuweegee</a>.</font>")
+	if h == g:
+		g.write("<br><font size=4>Tha a h-uile dealbhan saor, ach cuir mo ainm orra, agus thoir airgead gu <a href='https://www.refuweegee.co.uk/'>Refuweegee</a> ma 's toil leat.</font>")
+
 	h.write("""</center>""")
 	h.write("""</div>""")
 	h.write("""<br><br>""")
