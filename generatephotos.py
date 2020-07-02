@@ -56,9 +56,11 @@ for h in (f, g):
 	
 	#Print general CSS information
 	h.write("""<!DOCTYPE html>\n""")
+
 	h.write("""<style>\n""")
 	h.write("""@import "main.css"\n""")
 	h.write("""</style>\n""")
+
 	if h == f:
 		f.write("""<title>Amber Leamhnachd's Webpage</title>\n""")
 	if h == g:
@@ -99,8 +101,8 @@ for h in (f, g):
 	h.write("""<center>\n""")
 
 	#Generate table
-	h.write("""<table width="100%" height="60%" overflow:scroll;>""")
-	h.write("""<tr><td></td><td></td><td rowspan="100" valign="top" height="2000px" width="70%">""")
+	h.write(""" <ul class="monthul"> """)
+	h.write("""  """)
 	
 	#Location of my intro blurb
 	if h == f:
@@ -108,21 +110,13 @@ for h in (f, g):
 	if h == g:
 		target = '../Photos/photos_gaelic.html'
 	
-	#Load up iframe
-	h.write("""<iframe name="pictureframe" src='%s' frameBorder="0" width="100%%" height="100%%"></iframe></td></tr>""" %(target))
-	
 	#Current year
 	now = datetime.datetime.now()
 	myyear = str(now.year)
 	
-	#Print link back to intro blurb
-	if h == f:
-		f.write("""<td colspan=2><center><a href="Photos/photos_english.html" target="pictureframe" class="photolinks">Me</a></center></td></tr>\n""")
-	if h == g:
-		g.write("""<td colspan=2><center><a href="../Photos/photos_gaelic.html" target="pictureframe" class="photolinks">Mise</a></center></td></tr>\n""")
 
 	#Print Current Year
-	h.write("""<tr><td colspan=2><center><h2>%s</h2></center></td></tr>""" %myyear)
+	h.write("""<center>\n <h2>%s</h2> \n </center>\n   \n <ul class="monthul"> \n """ %myyear)
 
 	#This loads up all the subfolders in the 'Photos' folder
 	#If they are labeled 'YYYYMM' this will go in reverse chronological order
@@ -131,7 +125,10 @@ for h in (f, g):
 		#Create a seperate page (that we will use as an iframe) for each subfolder
 		page = open('Photos/%s/page.html' %i, 'w')
 		page.write("""<style>\n""")
-		page.write(""".album{height:150px;border:solid 1px #999;margin:5px;}\n""")
+		page.write(""".album{height:150px;border:solid 1px #999;margin:5px;\n -webkit-filter: grayscale(0) !important;
+	filter: grayscale(0) !important; height:140px;border:solid 1px #999;margin:3px;}\n""")
+		page.write(""".album:hover{height:150px;border:solid 1px #999;margin:5px;\n -webkit-filter: grayscale(50%) !important;
+	filter: grayscale(50%) !important; height:140px;border:solid 1px #999;margin:3px;}\n""")
 		page.write("""</style>\n<center>""")
 		
 		#Load up the year and month from the subfolder's name
@@ -140,7 +137,7 @@ for h in (f, g):
 		#If we get onto a new year, print a header
 		if year != myyear:
 			myyear = year
-			h.write("""<tr><td colspan=2><center><h2>%s</h2></center></td></tr>""" %myyear)
+			h.write("""</ul>\n <center><h2>%s</h2></center>\n \n <ul class="monthul">\n """ %myyear)
 
 		#Use the first photo as the thumbnail for the album(default)
 		thumb = os.listdir('Photos/%s' %i)[0]
@@ -173,8 +170,10 @@ for h in (f, g):
 					#Crop photo
 					im = im.crop(box=mybox)
 					
-					#Rescape
+					#Rescale
 					im.thumbnail((400,200))
+
+					#im = im.convert(mode="L")
 					
 					#Create a 'thumbnails' folder if necessary
 					if not os.path.exists('Photos/%s/thumbnails/' %(i)):
@@ -192,20 +191,27 @@ for h in (f, g):
 
 		#Write the navigational list of albums
 		if h == f:
-			f.write("""<tr><td><img src="Photos/%s/%s" style="width:80px;float:right;border: solid 1px black;"></td>\n""" %(i,thumb)) 
-			f.write("""<td><a href="Photos/%s/page.html" target="pictureframe" class="photolinks">%s %s</a></td></tr>\n""" %(i, english[month], year))
+			f.write("""<li class="monthlinks"><a href="Photos/%s/page.html" target="pictureframe" class="photolinks"> """ %(i))
+			f.write("""<img src="Photos/%s/thumbnails/small_%s" style="width:120px;border: solid 1px black;" class="myphotos"><br>\n""" %(i,thumb)) 
+			f.write("""%s</a></li>\n""" %(english[month]))
 
 		if h == g:
-			g.write("""<tr><td><img src="../Photos/%s/%s" style="width:80px;float:right;border: solid 1px black;"></td>\n""" %(i,thumb)) 
-			g.write("""<td><a href="../Photos/%s/page.html" target="pictureframe" class="photolinks">%s %s</a></td></tr>\n""" %(i, gaelic[month], year))
+			g.write("""<li class="monthlinks"><a href="../Photos/%s/page.html" target="pictureframe" class="photolinks"><br> """ %(i))
+			g.write("""<img src="../Photos/%s/%s" style="width:120px;border: solid 1px black;" class="myphotos"><br>\n""" %(i,thumb)) 
+			g.write("""%s</a></li>\n""" %(gaelic[month]))
 		
 		#Close the subfolder's page
 		page.close()
 
 	#Insert my footer
-	h.write("""</table>""")
+	h.write("""</ul>""")
 	h.write("""<br><br>""")
-	h.write("""</div>""")
+
+	#Load up iframe
+	h.write("""<iframe name="pictureframe" src='%s' frameBorder="0" width="100%%" style="overflow:auto;height:700px;"></iframe><br><br> \n """ %(target))
+	
+
+	h.write("""</ul></div>""")
 	h.write("""</center>""")
 	h.write("""</div>""")
 	h.write("""<br><br>""")
@@ -232,12 +238,11 @@ for k in f_2, g_2:
 	k.write(""" <center> """)
 	#k.write(""" <img src="P1010006.jpg" style="width:300px; border: solid 1px black; float:right; margin:10px;"><br><br> """)
 	if k == f_2:
-		f_2.write(""" <b><br><br> I was given a camera few years ago and I like using it.</b><br><br> 
-Pictures are free to use for personal projects if you see anything you like. Let me know if you do, it would give me the warm fuzzies. Actual photographers are always welcome to give me advice.<p> I use a Panasonic DMC-FZ72 and I mostly like photographing animals and nature. One day, I would like to get into astrophotography when I can get the equipment.<br><br>
-All dates are approximate. The script I use to generate this album can be found <a href="https://github.com/amberlennox/websitescripts/blob/master/photographypage.py" target="_blank">here</a>.<br><br> <img src="P1010006.JPG" style="width:300px; border: solid 1px black;margin:10px;">""")
+		f_2.write(""" <b><br><br> 
+Pictures will appear here.</b><br><br>
+The script I use to generate this album can be found <a href="https://github.com/amberlennox/websitescripts/blob/master/photographypage.py" target="_blank">here</a>.<br><br>""")
 	if k == g_2:
-		g_2.write(""" <b><br><br> Is toil leam photography. Tha camera agam agus d&egrave;anmh e a' cordadh rium.</b><br><br>
- Ma faicinn thu rud sam bith 's toigh leat, tha na photothan saor. 'S toil leam <br><br> <img src="P1010006.JPG" style="width:300px; border: solid 1px black;margin:10px;"> """)
+		g_2.write(""" <b><br><br> Bidh dealbhan an-seo.  """)
 f_2.close()
 g_2.close()
 

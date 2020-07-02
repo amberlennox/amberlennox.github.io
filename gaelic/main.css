@@ -1,6 +1,6 @@
 
 /* Background image */
-body{background-image:url("Arran2.jpg"); background-size:100% 100%; padding:0px; margin:0px;  background-attachment: fixed;overflow-x:hidden;}
+body{background-image:url("background_arran.jpg"); background-size:100% 100%; padding:0px; margin:0px;  background-attachment: fixed;overflow-x:hidden;}
 
 /* Language selection */
 #language{ position:absolute; top:5px; right:10px;font-size:15px;}
