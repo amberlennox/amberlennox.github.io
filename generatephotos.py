@@ -213,7 +213,7 @@ for h in (f, g):
 	h.write("""</ul></div>""")
 
 	if h == f:
-		f.write("<br><font size=4>All photos are free for personal use, but please give credit back here and consider a donation to <a href='https://www.refuweegee.co.uk/'>Refuweegee</a>.</font>")
+		f.write("<br><font size=4>All photos are free for personal use, but please give credit back to this site and consider a donation to <a href='https://www.refuweegee.co.uk/'>Refuweegee</a> if you use them.</font>")
 	if h == g:
 		g.write("<br><font size=4>Tha a h-uile dealbhan saor, ach cuir mo ainm orra, agus thoir airgead gu <a href='https://www.refuweegee.co.uk/'>Refuweegee</a> ma 's toil leat.</font>")
 
