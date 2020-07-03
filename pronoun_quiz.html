@@ -304,38 +304,38 @@ The game is completely free, but consider a donation to <a href="https://www.ref
 <script>
 
 function add_a() {
-	document.getElementById('answer').value = document.getElementById('answer').value + "à"
+	document.getElementById('answer').value = document.getElementById('answer').value + "à";
 }
 function add_e() {
-	document.getElementById('answer').value = document.getElementById('answer').value + "è"
+	document.getElementById('answer').value = document.getElementById('answer').value + "è";
 }
 function add_i() {
-	document.getElementById('answer').value = document.getElementById('answer').value + "ì"
+	document.getElementById('answer').value = document.getElementById('answer').value + "ì";
 }
 function add_o() {
-	document.getElementById('answer').value = document.getElementById('answer').value + "ò"
+	document.getElementById('answer').value = document.getElementById('answer').value + "ò";
 }
 function add_u() {
-	document.getElementById('answer').value = document.getElementById('answer').value + "ù"
+	document.getElementById('answer').value = document.getElementById('answer').value + "ù";
 }
 
 
 
 function savedata() {
 	for (i=0; i <all_prepositions.length; i++) {
-		console.log(i)
+		console.log(i);
 		var data = window.localStorage.getItem(all_strings[i]);
 		if (data == 'true') {
 			const result = document.querySelector('result');
 			document.getElementById(all_strings[i]).checked = true;
 			if (! prepositions.includes(all_prepositions[i])) {
-				prepositions.push(all_prepositions[i])
+				prepositions.push(all_prepositions[i]);
 				}
 		} else {
 			document.getElementById(all_strings[i]).checked = false;
 			if (prepositions.includes(all_prepositions[i])) {
-				var index = prepositions.indexOf(all_prepositions[i])
-				prepositions.splice(index, 1)
+				var index = prepositions.indexOf(all_prepositions[i]);
+				prepositions.splice(index, 1);
 				}
 		}
 	}
@@ -349,13 +349,13 @@ function savedata() {
 	myhigh_score.textContent = high_score;
 
 	window.localStorage.setItem('prepositions', prepositions);
-	newQuestion()
+	newQuestion();
 	return [prepositions];
-};
+}
 
 function checkBox(mystring) {
 	mybox = document.getElementById(mystring);
-        if(mybox.checked == true){
+        if(mybox.checked === true){
 		window.localStorage.setItem(mystring, true);
 	} else {
 		window.localStorage.setItem(mystring, false);
@@ -377,35 +377,35 @@ function loaddata() {
 function addPreposition(myinput) {
 	const test = document.querySelector('test');
 	test.textContent = myinput;
-	prepositions.push(myinput)
-};
+	prepositions.push(myinput);
+}
 
 
 function validateAnswer() {
 	var x = document.forms["pronounQuiz"]["answer"].value;
 	x = x.toLowerCase();
-	x = x.strip() 
+	x = x.trim();
 	//alert("you wrote");
 	const result = document.querySelector('result');
 	if (x == a[2]) {
-		result.style.color = "green"
+		result.style.color = "green";
 		result.textContent = "Correct!";
 		var audio = new Audio(a[3]);
 		audio.play();
 		streak++;
 		if (streak > high_score) {
-			window.localStorage.setItem('high_score', streak)
+			window.localStorage.setItem('high_score', streak);
 			}
-		window.localStorage.setItem('streak', streak)
+		window.localStorage.setItem('streak', streak);
 		return true;	
 	} else {	
-		result.style.color = "red"
+		result.style.color = "red";
 		result.textContent = "Not quite!";
 		streak = 0;
-		window.localStorage.setItem('streak', streak)
+		window.localStorage.setItem('streak', streak);
 		return false;
 	}
-};
+}
 
 
 function newQuestion() {
@@ -417,13 +417,13 @@ function newQuestion() {
 	preposition.textContent = preposition1;
 	const pronoun = document.querySelector('pronoun');
 	pronoun.textContent = pronoun1;
-};
+}
 
 function giveHint() {
 	hintno ++;
 	const hint = document.querySelector('hint');
 	hint.textContent = a[2].substr(0,hintno);
-};
+}
 
 function getCombo() {
    var random_preposition = Math.floor(Math.random() * prepositions.length);
@@ -437,7 +437,7 @@ function getCombo() {
    var url = '/pronouns/'+(preposition)+'/'+prep_pronoun+'.mp3';
    //console.log(url);
    return [preposition, pronoun, prep_pronoun, url];
-};
+}
 
 var aig = ['aig', 'agam', 'agad', 'aige', 'aice', 'againn', 'agaibh', 'aca'];
 var air = ['air', 'orm', 'ort', 'air', 'oirre', 'oirnn', 'oirbh', 'orra'];
@@ -463,15 +463,15 @@ var all_strings = ['aig', 'air', 'ann', 'as1', 'bho', 'de', 'do1', 'fo', 'gu', '
 
 
 if (localStorage.getItem("streak") === null) {
-  	var streak = 0
+	var streak = 0;
 } else {
-	var streak = window.localStorage.getItem('streak')
+	var streak = window.localStorage.getItem('streak');
 }
 
 if (localStorage.getItem("high_score") === null) {
-  	var high_score = 0
+	var high_score = 0;
 } else {
-	var high_score = window.localStorage.getItem('high_score')
+	var high_score = window.localStorage.getItem('high_score');
 }
 
 var hintno = 0;
