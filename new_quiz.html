@@ -62,9 +62,9 @@ To use the quiz, just check the pronouns you would like to test yourself on from
 <h1>Prepositional Pronoun Quiz</h1>
 
 <div>
-
+<center>
  <form name="pronounQuiz" onsubmit="return validateAnswer()" action="">
-      	<font size="6"><preposition></preposition> + <pronoun></pronoun> = ?</font>
+      	<font size="6"><noun></noun> + <pronoun></pronoun> = ?</font>
 	<br><br>
 	<input type="text" name="answer" id="answer" autofocus="autofocus"> <result></result>
 	<br>
@@ -83,41 +83,24 @@ Current streak: <streak></streak><br>
 High Score: <high_score></high_score></font>
 <p><br>
 <font size="5">Test me on: <br>
-<input type="checkbox" id="aig" onclick="checkBox('aig')"> 
-<label for="aig">aig</label> 
-<input type="checkbox" id="air" onclick="checkBox('air')"> 
-<label for="air">air</label> 
-<input type="checkbox" id="ann" onclick="checkBox('ann')"> 
-<label for="ann">ann</label> 
-<input type="checkbox" id="as1" onclick="checkBox('as1')"> 
-<label for="as1">às</label> 
-<input type="checkbox" id="bho" onclick="checkBox('bho')"> 
-<label for="bho">bho</label> 
-<input type="checkbox" id="de" onclick="checkBox('de')"> 
-<label for="de">de</label> <br>
-<input type="checkbox" id="do1" onclick="checkBox('do1')"> 
-<label for="do1">do/dha</label> 
-<input type="checkbox" id="fo" onclick="checkBox('fo')"> 
-<label for="fo">fo</label> 
-<input type="checkbox" id="gu" onclick="checkBox('gu')"> 
-<label for="gu">gu/chun</label> 
-<input type="checkbox" id="le" onclick="checkBox('le')"> 
-<label for="le">le</label> 
-<input type="checkbox" id="mu" onclick="checkBox('mu')"> 
-<label for="mu">mu</label><br> 
-<input type="checkbox" id="o" onclick="checkBox('o')"> 
-<label for="o">o</label> 
-<input type="checkbox" id="ri" onclick="checkBox('ri')"> 
-<label for="ri">ri</label> 
-<input type="checkbox" id="ro" onclick="checkBox('ro')"> 
-<label for="ro">ro</label> 
-<input type="checkbox" id="thar" onclick="checkBox('thar')"> 
-<label for="thar">thar</label> 
-<input type="checkbox" id="tro" onclick="checkBox('tro')"> 
-<label for="tro">tro</label> 
+<input type="checkbox" id="cota" onclick="checkBox('cota')"> 
+<label for="cota">còta</label> 
+<input type="checkbox" id="piuthar" onclick="checkBox('piuthar')"> 
+<label for="piuthar">piuthar</label> 
+<input type="checkbox" id="peata" onclick="checkBox('peata')"> 
+<label for="peata">peata</label> 
+<input type="checkbox" id="as1" onclick="checkBox('leanamh')"> 
+<label for="leanamh">leanamh</label> 
+<input type="checkbox" id="taigh" onclick="checkBox('taigh')"> 
+<label for="taigh">taigh</label> 
+<input type="checkbox" id="airgead" onclick="checkBox('airgead')"> 
+<label for="airgead">airgead</label> <br>
+<input type="checkbox" id="do1" onclick="checkBox('ogha')"> 
+<label for="ogha">ogha</label> 
+
 </font>
 <br><br><br><br><br><br><br><br><br><br>
-<center>
+
 <b>Cheat Sheet</b>
 <table>
 <tr>
@@ -322,35 +305,31 @@ function add_u() {
 
 
 function savedata() {
-	for (i=0; i <all_prepositions.length; i++) {
-		console.log(i);
+	for (i=0; i < all_nouns.length; i++) {
 		var data = window.localStorage.getItem(all_strings[i]);
 		if (data == 'true') {
 			const result = document.querySelector('result');
 			document.getElementById(all_strings[i]).checked = true;
-			if (! prepositions.includes(all_prepositions[i])) {
-				prepositions.push(all_prepositions[i]);
+			if (! nouns.includes(all_nouns[i])) {
+				nouns.push(all_nouns[i]);
 				}
 		} else {
 			document.getElementById(all_strings[i]).checked = false;
-			if (prepositions.includes(all_prepositions[i])) {
-				var index = prepositions.indexOf(all_prepositions[i]);
-				prepositions.splice(index, 1);
+			if (nouns.includes(all_nouns[i])) {
+				var index = nouns.indexOf(all_nouns[i]);
+				nouns.splice(index, 1);
 				}
 		}
 	}
-	// REMOVE THIS
-	//const result = document.querySelector('result');
-	//result.textContent = prepositions;
-	const mystreak = document.querySelector('streak');
+	const mystreak = document.querySelector('possession_streak');
 	mystreak.textContent = streak;
 
-	const myhigh_score = document.querySelector('high_score');
+	const myhigh_score = document.querySelector('possession_high_score');
 	myhigh_score.textContent = high_score;
 
-	window.localStorage.setItem('prepositions', prepositions);
+	window.localStorage.setItem('nouns', nouns);
 	newQuestion();
-	return [prepositions];
+	return [nouns];
 }
 
 function checkBox(mystring) {
@@ -365,7 +344,6 @@ function checkBox(mystring) {
 
 
 function loaddata() {
-	//window.localStorage.setItem('key', 'boo');
         if(document.getElementById('aig').checked){
 		window.localStorage.setItem('key', true);
 		document.getElementById("aig").checked = true;
@@ -385,7 +363,6 @@ function validateAnswer() {
 	var x = document.forms["pronounQuiz"]["answer"].value;
 	x = x.toLowerCase();
 	x = x.trim();
-	//alert("you wrote");
 	const result = document.querySelector('result');
 	if (x == a[2]) {
 		result.style.color = "green";
@@ -394,15 +371,15 @@ function validateAnswer() {
 		audio.play();
 		streak++;
 		if (streak > high_score) {
-			window.localStorage.setItem('high_score', streak);
+			window.localStorage.setItem('possession_high_score', streak);
 			}
-		window.localStorage.setItem('streak', streak);
+		window.localStorage.setItem('possession_streak', streak);
 		return true;	
 	} else {	
 		result.style.color = "red";
 		result.textContent = "Not quite!";
 		streak = 0;
-		window.localStorage.setItem('streak', streak);
+		window.localStorage.setItem('possession_streak', streak);
 		return false;
 	}
 }
@@ -410,11 +387,10 @@ function validateAnswer() {
 
 function newQuestion() {
 	a = getCombo();
-	preposition1 = a[0];
+	noun1 = a[0];
 	pronoun1 = a[1];
-	//global prep_pronoun = a[2]
-	const preposition = document.querySelector('preposition');
-	preposition.textContent = preposition1;
+	const noun = document.querySelector('noun');
+	noun.textContent = noun1;
 	const pronoun = document.querySelector('pronoun');
 	pronoun.textContent = pronoun1;
 }
@@ -426,68 +402,47 @@ function giveHint() {
 }
 
 function getCombo() {
-   var random_preposition = Math.floor(Math.random() * prepositions.length);
+   var random_noun = Math.floor(Math.random() * nouns.length);
    var random_pronoun = (1 + Math.floor(Math.random() * 7));
-   var preposition = prepositions[random_preposition][0];
-   //console.log(preposition);
+   var noun = nouns[random_noun][0];
    var pronoun = pronouns[random_pronoun];
-   //console.log(pronoun);
-   var prep_pronoun = prepositions[random_preposition][random_pronoun];
-   //console.log(prep_pronoun);
-   var url = '/pronouns/'+(preposition)+'/'+prep_pronoun+'.mp3';
-   //console.log(url);
-   return [preposition, pronoun, prep_pronoun, url];
+   var real_answer = nouns[random_noun][random_pronoun];
+   var url = '/pronouns/'+(noun)+'/'+pronoun+'.mp3';
+   return [noun, pronoun, real_answer, url];
 }
 
-var aig = ['aig', 'agam', 'agad', 'aige', 'aice', 'againn', 'agaibh', 'aca'];
-var air = ['air', 'orm', 'ort', 'air', 'oirre', 'oirnn', 'oirbh', 'orra'];
-var ann = ['ann', 'annam', 'annad', 'ann', 'innte', 'annainn', 'annaibh', 'annta'];
-var as1 = ['às', 'asam', 'asad', 'às', 'aiste', 'asainn', 'asaibh', 'asta'];
-var bho = ['bho', 'bhuam', 'bhuat', 'bhuaithe', 'bhuaipe', 'bhuainn', 'bhuaibh', 'bhuapa'];
-var de = ['de', 'dhìom', 'dhìot', 'dheth', 'dhith', 'dhinn', 'dhibh', 'dhiubh'];
-var do1 = ['do', 'dhomh', 'dhut', 'dha', 'dhi', 'dhuinn', 'dhuibh', 'dhaibh'];
-var fo = ['fo','fodham', 'fodhad', 'fodha', 'foidhpe', 'fodhainn', 'fodhaibh', 'fodhpa'];
-var gu = ['gu', 'thugam', 'thugad', 'thuige', 'thuice', 'thugainn', 'thugaibh', 'thuca'];
-var le = ['le', 'leam', 'leat', 'leis', 'leatha', 'leinn', 'leibh', 'leotha'];
-var mu = ['mu', 'umam', 'umad', 'uime', 'uimpe', 'umainn', 'umaibh', 'umpa'];
-var o = ['o', 'uam', 'uat', 'uaithe', 'uaipe', 'uainn', 'uaibh', 'uapa'];
-var ri = ['ri', 'rium', 'riut', 'ris', 'rithe', 'rinn', 'ribh', 'riutha'];
-var ro = ['ro', 'romham', 'romhad', 'roimhe', 'roimhpe', 'romhainn', 'romhaibh', 'romhpa'];
-var thar = ['thar','tharam', 'tharad', 'thairis', 'thairte', 'tharainn', 'tharaibh', 'tharta'];
-var tro = ['tro', 'tromham', 'tromhad', 'troimhe', 'troimhpe', 'tromhainn', 'tromhaibh', 'tromhpa'];
-
-var all_prepositions = [aig, air, ann, as1, bho, de, do1, fo, gu, le, mu, o, ri, ro, thar, tro];
-var all_strings = ['aig', 'air', 'ann', 'as1', 'bho', 'de', 'do1', 'fo', 'gu', 'le', 'mu', 'o', 'ri', 'ro', 'thar', 'tro'];
+var cota = ['còta', 'mo chòta', 'do chòta', 'a chòta', 'a còta', 'ar còta', 'ur còta', 'an còta'];
+var piuthar = ['piuthar', 'mo phiuthar', 'do phiuthar', 'a phiuthar', 'a piuthar', 'ar piuthar', 'ur piuthar', 'am piuthar'];
+var peata = ['peata', 'mo pheata', 'do pheata', 'a pheata', 'a peata', 'ar peata', 'ur peata', 'am peata'];
+var leanamh = ['leanamh', 'mo leanamh', 'do leanamh', 'a leanamh', 'a leanamh', 'ar leanamh', 'ur leanamh', 'an leanamh'];
+var taigh = ['taigh', 'mo taigh', 'do taigh', 'a taigh', 'a taigh', 'ar taigh', 'ur taigh', 'an taigh'];
+var airgead = ['airgead', "m' airgead", "d' airgead", 'airgead', 'a h-airgead', 'ar n-airhead', 'ur n-airgead', 'an airgead'];
+var ogha = ['ogha', "m' ogha", "d' ogha", 'ogha', 'a h-ogha', 'ar n-ogha', 'ur n-ogha', 'an ogha'];
 
 
 
 
-if (localStorage.getItem("streak") === null) {
+var all_nouns = [cota, piuthar, peata, leanamh, taigh, airgead, ogha];
+var all_strings = ['còta', 'piuthar', 'peata', 'leanamh', 'taigh', 'airgead', 'ogha'];
+
+
+
+
+if (localStorage.getItem("possession_streak") === null) {
 	var streak = 0;
 } else {
-	var streak = window.localStorage.getItem('streak');
+	var streak = window.localStorage.getItem('possession_streak');
 }
 
-if (localStorage.getItem("high_score") === null) {
+if (localStorage.getItem("possession_high_score") === null) {
 	var high_score = 0;
 } else {
-	var high_score = window.localStorage.getItem('high_score');
+	var high_score = window.localStorage.getItem('possession_high_score');
 }
 
 var hintno = 0;
-//var prepositions = savedata() 
-var prepositions = [air];
-//var prepositions = [aig, air, ann, as1, bho, de, do1, fo, gu, le, mu, o, ri, ro, thar, tro];
+var nouns = [cota];
 var pronouns = ['pronoun', 'mi', 'thu', 'e', 'i', 'sinn', 'sibh', 'iad'];
-//var a = getCombo();
-//preposition1 = a[0]
-//pronoun1 = a[1]
-
-
-//const preposition = document.querySelector('preposition');
-//preposition.textContent = preposition1;
-//const pronoun = document.querySelector('pronoun');
-//pronoun.textContent = pronoun1;
 
 </script>
 </div>
