@@ -131,23 +131,23 @@ The game is completely free, but consider a donation to <a href="https://www.ref
 <script>
 
 function add_a() {
-	insertAtCursor(document.getElementById("answer"), 'à')
+	document.getElementById('answer').value = document.getElementById('answer').value + "à";
 	document.getElementById("answer").focus();
 }
 function add_e() {
-	insertAtCursor(document.getElementById("answer"), 'è')
+	document.getElementById('answer').value = document.getElementById('answer').value + "è";
 	document.getElementById("answer").focus();
 }
 function add_i() {
-	insertAtCursor(document.getElementById("answer"), 'ì')
+	document.getElementById('answer').value = document.getElementById('answer').value + "ì";
 	document.getElementById("answer").focus();
 }
 function add_o() {
-	insertAtCursor(document.getElementById("answer"), 'ò')
+	document.getElementById('answer').value = document.getElementById('answer').value + "ò";
 	document.getElementById("answer").focus();
 }
 function add_u() {
-	insertAtCursor(document.getElementById("answer"), 'ù')
+	document.getElementById('answer').value = document.getElementById('answer').value + "ù";
 	document.getElementById("answer").focus();
 }
 
@@ -155,30 +155,6 @@ function savedata() {
 	newQuestion();
 	return true;
 }
-
-
-
-function insertAtCursor(myField, myValue) {
-    //IE support
-    if (document.selection) {
-        myField.focus();
-        sel = document.selection.createRange();
-        sel.text = myValue;
-    }
-    //MOZILLA and others
-    else if (myField.selectionStart || myField.selectionStart == '0') {
-        var startPos = myField.selectionStart;
-        var endPos = myField.selectionEnd;
-        myField.value = myField.value.substring(0, startPos)
-            + myValue
-            + myField.value.substring(endPos, myField.value.length);
-	myField.selectionEnd = startPos + myValue.length;
-    } else {
-        myField.value += myValue;
-    }
-}
-
-
 
 function validateAnswer() {
 	var x = document.forms["monthQuiz"]["answer"].value;
