@@ -62,10 +62,12 @@
 <div align="center">
 
  <form name="monthQuiz" onsubmit="return validateAnswer()" action="">
-      	<div style="float:right;"><br><monthimage></monthimage></div><br><br><br><font size=6><monthno></monthno></font> 
-	<br><br>
+      	
+<div style=""><br><monthimage></monthimage></div><br>
 	<input type="text" name="answer" id="answer" autofocus="autofocus" autocomplete="off"> <br>
 <result></result>
+<br>
+<font size=6><monthno></monthno></font> 
 	<br>
 	<button type="submit" class="submitandhint">Submit</button> <button type="button" onclick="giveHint()" class="submitandhint">Hint</button> <br>
 	<font size="3"><hint></hint> </font>
@@ -79,11 +81,12 @@
 <button type="button" onclick="return add_u()" class="accentbutton">ù</button>
 
 </font>
+<center>
 <br><br>Enter the month corresponding to the number/picture shown. <br>A cheat sheet is down below. <br>(Month names are accepted with and without the definite article.)
 <br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
-<center>
+
 Pictures were chosen to correspond roughly to <a href="https://learngaelic.scot/look/index.jsp?b=BM27" target="_blank">B&agrave;rdachd nam M&igrave;osan/The Months in Verse</a>, which you may find a useful resource to practice with.
 <br><br>
 <b>Cheat Sheet</b>
@@ -91,35 +94,43 @@ Pictures were chosen to correspond roughly to <a href="https://learngaelic.scot/
 <tr>
 	<td><img src="gamefiles/months_quiz/Faoilleach_name.jpg" style="width:300px;border: solid 1px black;"></td>
 		<td class="monthexlp"><h9>1.</h9><p><h8>Am Faoilleach</h8><p>
-	<td><img src="gamefiles/months_quiz/Cèitean_name.jpg" style="width:300px;border: solid 1px black;"></td>
-		<td class="monthexlp"><h9>5.</h9><p><h8>An C&egrave;itean</h8><p>
-	<td><img src="gamefiles/months_quiz/Sultain_name.jpg" style="width:300px;border: solid 1px black;"></td>
-		<td class="monthexlp"><h9>9.</h9><p><h8>An t-Sultain</h8><p>
-</tr>
-<tr>
 	<td><img src="gamefiles/months_quiz/Gearran_name.jpg" style="width:300px;border: solid 1px black;"></td>
 		<td class="monthexlp"><h9>2.</h9><p><h8>An Gearran</h8><p>
-	<td><img src="gamefiles/months_quiz/&Ograve;gmhios_name.jpg" style="width:300px;border: solid 1px black;"></td>
-		<td class="monthexlp"><h9>6.</h9><p><h8>An t-Ògmhios</h8><p>
-	<td><img src="gamefiles/months_quiz/Dàmhair_name.jpg" style="width:300px;border: solid 1px black;"></td>
-		<td class="monthexlp"><h9>10.</h9><p><h8>An D&agrave;mhair</h8><p>
 </tr>
 <tr>
 	<td><img src="gamefiles/months_quiz/Màrt_name.jpg" style="width:300px;border: solid 1px black;"></td>
 		<td class="monthexlp"><h9>3.</h9><p><h8>Am M&agrave;rt</h8><p>
-	<td><img src="gamefiles/months_quiz/Iuchar_name.jpg" style="width:300px;border: solid 1px black;"></td>
-		<td class="monthexlp"><h9>7.</h9><p><h8>An t-Iuchar</h8><p>
-	<td><img src="gamefiles/months_quiz/Samhain_name.jpg" style="width:300px;border: solid 1px black;"></td>
-		<td class="monthexlp"><h9>11.</h9><p><h8>An t-Samhain</h8><p>
-</tr>
-<tr>
 	<td><img src="gamefiles/months_quiz/Giblean_name.jpg" style="width:300px;border: solid 1px black;"></td>
 		<td class="monthexlp"><h9>4.</h9><p><h8>An Giblean</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/months_quiz/Cèitean_name.jpg" style="width:300px;border: solid 1px black;"></td>		
+		<td class="monthexlp"><h9>5.</h9><p><h8>An C&egrave;itean</h8><p>
+	<td><img src="gamefiles/months_quiz/&Ograve;gmhios_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>6.</h9><p><h8>An t-Ògmhios</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/months_quiz/Iuchar_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>7.</h9><p><h8>An t-Iuchar</h8><p>
 	<td><img src="gamefiles/months_quiz/Lùnastal_name.jpg" style="width:300px;border: solid 1px black;"></td>
 		<td class="monthexlp"><h9>8.</h9><p><h8>An L&ugrave;nastal</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/months_quiz/Sultain_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>9.</h9><p><h8>An t-Sultain</h8><p>
+	<td><img src="gamefiles/months_quiz/Dàmhair_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>10.</h9><p><h8>An D&agrave;mhair</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/months_quiz/Samhain_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>11.</h9><p><h8>An t-Samhain</h8><p>
 	<td><img src="gamefiles/months_quiz/Dùbhlachd_name.jpg" style="width:300px;border: solid 1px black;"></td>
 		<td class="monthexlp"><h9>12.</h9><p><h8>An D&ugrave;bhlachd</h8><p>
+
+
+
 </tr>
+
 </table>
 </center>
 <br><br>

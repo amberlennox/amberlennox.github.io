@@ -305,22 +305,64 @@ The game is completely free, but consider a donation to <a href="https://www.ref
 <script>
 
 function add_a() {
-	document.getElementById('answer').value = document.getElementById('answer').value + "à";
+	insertAtCursor(document.getElementById("answer"), 'à')
+	document.getElementById("answer").focus();
 }
 function add_e() {
-	document.getElementById('answer').value = document.getElementById('answer').value + "è";
+	insertAtCursor(document.getElementById("answer"), 'è')
+	document.getElementById("answer").focus();
 }
 function add_i() {
-	document.getElementById('answer').value = document.getElementById('answer').value + "ì";
+	insertAtCursor(document.getElementById("answer"), 'ì')
+	document.getElementById("answer").focus();
 }
 function add_o() {
-	document.getElementById('answer').value = document.getElementById('answer').value + "ò";
+	insertAtCursor(document.getElementById("answer"), 'ò')
+	document.getElementById("answer").focus();
 }
 function add_u() {
-	document.getElementById('answer').value = document.getElementById('answer').value + "ù";
+	insertAtCursor(document.getElementById("answer"), 'ù')
+	document.getElementById("answer").focus();
 }
 
-
+function insertAtCursor(myField, myValue) {
+    //IE support
+    if (document.selection) {
+        myField.focus();
+        sel = document.selection.createRange();
+        sel.text = myValue;
+    }
+    //MOZILLA and others
+    else if (myField.selectionStart || myField.selectionStart == '0') {
+        var startPos = myField.selectionStart;
+        var endPos = myField.selectionEnd;
+        myField.value = myField.value.substring(0, startPos)
+            + myValue
+            + myField.value.substring(endPos, myField.value.length);
+	myField.selectionEnd = startPos + myValue.length;
+    } else {
+        myField.value += myValue;
+    }
+}
+function insertAtCursor(myField, myValue) {
+    //IE support
+    if (document.selection) {
+        myField.focus();
+        sel = document.selection.createRange();
+        sel.text = myValue;
+    }
+    //MOZILLA and others
+    else if (myField.selectionStart || myField.selectionStart == '0') {
+        var startPos = myField.selectionStart;
+        var endPos = myField.selectionEnd;
+        myField.value = myField.value.substring(0, startPos)
+            + myValue
+            + myField.value.substring(endPos, myField.value.length);
+	myField.selectionEnd = startPos + myValue.length;
+    } else {
+        myField.value += myValue;
+    }
+}
 
 function savedata() {
 	for (i=0; i <all_prepositions.length; i++) {
