@@ -25,7 +25,7 @@
         -webkit-border-radius: 10px;
         margin:10px; font-size:20px;}
 
-	.seasonexlp{padding-right:50px;}
+	.dayexlp{padding-right:50px;}
 
 	#answer{ font-size:20px;}
 
@@ -33,7 +33,7 @@
 	h9{font-size:38px; font-weight:bold;}
 </style>
 
-<title>Gaelic Seasons Quiz</title>
+<title>Gaelic days Quiz</title>
 
 
 <html>
@@ -57,13 +57,13 @@
 
 <center>
 <div class="mytext">
-<h1>Seasons Quiz</h1>
+<h1>Days Quiz</h1>
 
 <div align="center">
 
- <form name="seasonQuiz" onsubmit="return validateAnswer()" action="">
+ <form name="dayQuiz" onsubmit="return validateAnswer()" action="">
       	
-<div style=""><br><seasonimage></seasonimage></div><br>
+<div style=""><br><dayimage></dayimage></div><br>
 	<input type="text" name="answer" id="answer" autofocus="autofocus" autocomplete="off"> <br>
 <result></result>
 <br>
@@ -82,28 +82,22 @@
 
 </font>
 <center>
-<br><br>Enter the season corresponding to the picture shown. <br>A cheat sheet is down below. <br>(season names are accepted with and without the definite article.)
+<br><br>Enter the day corresponding to the picture shown. <br>A cheat sheet is down below. <br>
 <br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br>
+
 
 <br><br>
-<b>Cheat Sheet</b>
+<b>Cheat Sheet</b><br>
+<img src="gamefiles/days_quiz/dayskey.jpg" style="width:800px;"><br><br>
 <table>
-<tr>
-	<td><img src="gamefiles/seasons_quiz/earrach_title.jpg" style="width:300px;border: solid 1px black;"></td>
-		<td class="seasonexlp"><p><h8>an t-earrach</h8><p>
-	<td><img src="gamefiles/seasons_quiz/samhradh_title.jpg" style="width:300px;border: solid 1px black;"></td>
-		<td class="seasonexlp"><p><h8>am samhradh</h8><p>
-</tr>
-<tr>
-	<td><img src="gamefiles/seasons_quiz/foghar_title.jpg" style="width:300px;border: solid 1px black;"></td>
-		<td class="seasonexlp"><p><h8>am foghar</h8><p>
-	<td><img src="gamefiles/seasons_quiz/geamhradh_title.jpg" style="width:300px;border: solid 1px black;"></td>
-		<td class="seasonexlp"><p><h8>an geamhradh</h8><p>
-</tr>
-
-
+<tr><td>1. </td><td>Diluain</td><td>Day of the Moon (Latin)</td></tr>
+<tr><td>2. </td><td>Dimàirt</td><td>Day of Mars (Latin)</td></tr>
+<tr><td>3. </td><td>Diciadain</td><td>Day of the first fast (Ancient Gaelic)</td></tr>
+<tr><td>4. </td><td>Diardaoin</td><td>Day between fasts (Ancient Gaelic)</td></tr>
+<tr><td>5. </td><td>Dihaoine</td><td>Day of the fast (Ancient Gaelic) </td></tr>
+<tr><td>6. </td><td>Disathairne</td><td>Day of Saturn (Latin)</td></tr>
+<tr><td>7. </td><td>Didòmhnaich/Là na Sàbaid</td><td>Day of the Lord/Day of Sabbath (Latin)</td></tr>
 </table>
 </center>
 <br><br>
@@ -165,12 +159,12 @@ function insertAtCursor(myField, myValue) {
 
 
 function validateAnswer() {
-	var x = document.forms["seasonQuiz"]["answer"].value;
+	var x = document.forms["dayQuiz"]["answer"].value;
 	x = x.toLowerCase();
 	x = x.trim();
 	//alert("you wrote");
 	const result = document.querySelector('result');
-	if (x == a[0].toLowerCase() || x == a[2].toLowerCase()) {
+	if (x == a[0].toLowerCase() || x == a[2].toLowerCase() || x == a[4].toLowerCase()) {
 		result.style.color = "green";
 		result.textContent = "Correct!";
 		return true;	
@@ -183,17 +177,17 @@ function validateAnswer() {
 
 
 function newQuestion() {
-	var last_season = window.localStorage.getItem('last_season')
+	var last_day = window.localStorage.getItem('last_day')
 	do {
 		a = getCombo();
 	}
-	while (a[0] == last_season);
-	season = a[0];
+	while (a[0] == last_day);
+	day = a[0];
 	url = a[1];
-	window.localStorage.setItem('last_season', season)
+	window.localStorage.setItem('last_day', day)
 
-	const seasonimage = document.querySelector('seasonimage');
-	seasonimage.innerHTML = "<img src="+url+" style='border: solid 2px black;'>";
+	const dayimage = document.querySelector('dayimage');
+	dayimage.innerHTML = "<img src="+url+" style='width:800px;'>";
 }
 
 function giveHint() {
@@ -204,16 +198,18 @@ function giveHint() {
 
 function getCombo() {
 
-   var random_season = Math.floor(Math.random() * indefinite_seasons.length);
-   var season = indefinite_seasons[random_season];
-   var alt_season = definite_seasons[random_season]
-   var url = 'gamefiles/seasons_quiz/'+season+'.jpg';
-   return [season, url, alt_season, (random_season+1)];
+   var random_day = Math.floor(Math.random() * indefinite_days.length);
+   var day = indefinite_days[random_day];
+   var alt_day = alt_days[random_day]
+   var alt_day2 = alt_days2[random_day]
+   var url = 'gamefiles/days_quiz/'+day+'.jpg';
+   return [day, url, alt_day, (random_day+1), alt_day2];
 }
 
 
-var indefinite_seasons = ['earrach', 'foghar', 'geamhradh', 'samhradh']
-var definite_seasons = ['an t-earrach', 'am foghar', 'an geamhradh', 'an samhradh']
+var indefinite_days = ['Diluain', 'Dimàirt', 'Diciadain', 'Diardaoin', 'Dihaoine', 'Disathairne', 'Didòmhnaich']
+var alt_days = ['Diluain', 'Dimàirt', 'Diciadain', 'Diardaoin', 'Dihaoine', 'Disathairne', 'Là na Sàbaid']
+var alt_days2 = ['Diluain', 'Dimàirt', 'Diciadain', 'Diardaoin', 'Dihaoine', 'Disathairne', 'Latha na Sàbaid']
 
 
 
