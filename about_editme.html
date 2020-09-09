@@ -7,15 +7,20 @@
 
 <html>
 <head>
-    <script src="jquery.js"></script> 
-    <script> 
-    $(function(){
-      $("#includedContent").load("header.htm"); 
-    });
-    </script> 
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+<script> 
+$(function(){
+  $("#header").load("header.htm"); 
+  $("#footer").load("footer.htm"); 
+});
+</script> 
 </head>
 <body>
-     <div id="includedContent"></div>
+     <div id="header"></div>
 <div id="language">
  <ul id="languageul">
   <li class="languageli"><a href="gaelic/mumdeidhinn.html" class="languagelink"><img src="gaelicflag.png" class="flag"><br> G&agrave;idhlig</a></li>
