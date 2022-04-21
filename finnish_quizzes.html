@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<style>
+@import "main.css"
+</style>
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+<script> 
+$(function(){
+  $("#header").load("header.htm"); 
+  $("#footer").load("footer.htm"); 
+});
+</script> 
+<title>Amber Lennox's Webpage</title>
+<html>
+<body>
+<div id="header"></div>
+<div id="language">
+ <ul id="languageul">
+  <li class="languageli"><a href="gaelic/gaelic_geaman.html" class="languagelink"><img src="gaelicflag.png" class="flag"><br> G&agrave;idhlig</a></li>
+
+  <li class="languageli"><a href="gaelic_quizzes.html" class="languagelink"><img src="englishflag.png" class="flag"><br> English</a></li>
+</ul> 
+ 
+</div>
+<br>
+
+<div class="main">
+<br>
+<center>
+<div class="mytext">
+<b>Finnish</b> is a Uralic language native to Finland.<br><br>
+<b><font size="4">Grammar</font></b>
+<ul><li><a href="pronoun_quiz.html">Prepositional Pronoun Quiz</a><br></li>
+<li><a href="possession_quiz.html"> Possession Quiz (beta)</a><br></li></ul>
+<b><font size="4">Time</font></b>
+<ul><li><a href="months_quiz.html"> Month Quiz (beta)</a><br></li>
+<li><a href="seasons_quiz.html"> Seasons Quiz (beta)</a><br></li>
+<li><a href="days_quiz.html"> Days Quiz (beta)</a><br></li>
+</ul>
+</div>
+</center>
+</div>
+<br><br>
+<br><br>
+<br><br>
+<div id="footerdiv">
+<iframe id="footer" src="footer.htm" frameBorder="0" scrolling="no"></iframe>
+</div>
+</body>
+</html>

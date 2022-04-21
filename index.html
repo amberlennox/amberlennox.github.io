@@ -2,10 +2,23 @@
 <style>
 @import "main.css"
 </style>
+
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+<script> 
+$(function(){
+  $("#header").load("header.htm"); 
+  $("#footer").load("footer.htm"); 
+});
+</script> 
+
 <title>Amber Lennox's Webpage</title>
 <html>
 <body>
-<iframe id="header" src="header.htm" frameBorder="0" scrolling="no"></iframe>
+<div id="header"></div>
 <br>
 
 <div id="language">
@@ -21,9 +34,6 @@
 <br>
 <center>
 <div class="mytext">
-<div style="float:right;">
-<img src="on_arran.jpg" style="margin:30px;width:700px;height=500px;border:solid 1px black;"><br>
-</div>
 <b><p>Welcome to my webpage.</p>
 My name is Amber and I am a cosmologist currently working on both observation and analysis of the cosmic microwave background (CMB) in collaboration with telescopes such as SPIDER. I am looking for B-modes in the polarization spectrum of the CMB, a key feature that would provide evidence for inflation in the early universe.
 <p>
@@ -37,8 +47,11 @@ I spend my free time playing ice hockey and learning Gaelic.</b>
 'S ann Alba &agrave; tha mi agus dh'cr&igrave;ochnaich mi ceum nam fiosaigs aig Oilthigh Ghlaschu ann an 2016. Tha mi air air iomadh rudan a obair, mar eisimpleir fiosaigeachd nam bloighean agus damhna dorcha, anns an R&igrave;oghachd Aonaichte, a' Ghearmailt agus na St&agrave;itean Aonaichte. 
 <p>
 Tha hockaidh a' c&ograve;rdadh rium.<p>
-Tha an l&agrave;rach-l&igrave;n G&agrave;idhlig agam <a href="gaelic/index.html">an-seo.</a></i>
+Tha an l&agrave;rach-l&igrave;n G&agrave;idhlig agam <a href="gaelic/index.html">an-seo.</a></i><br>
+<center>
+<img src="on_arran.jpg" style="margin:30px;width:700px;height=500px;border:solid 1px black;"><br>
 <br>
+</center>
 </div>
 </center>
 </div>

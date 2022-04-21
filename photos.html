@@ -2,16 +2,31 @@
 <style>
 @import "main.css"
 </style>
+
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+<script> 
+$(function(){
+  $("#header").load("header.htm"); 
+  $("#footer").load("footer.htm"); 
+});
+</script>
+
 <title>Amber Leamhnachd's Webpage</title>
 <html>
 <body>
-<iframe id="header" src="header.htm" frameBorder="0" scrolling="no"></iframe>
+<div id="header"></div>
 <div id="language">
 <ul id="languageul">
 <li class="languageli"> <a href="gaelic/dealbhan.html" class="languagelink"><img src="gaelicflag.png" class="flag"><br>G&agrave;idhlig</a></li>
 <li class="languageli"><a href="photos.html" class="languagelink"><img src="englishflag.png" class="flag"><br> English</a></li>
 </ul> 
 </div>
+
+
 <title>Amber Leamhnachd's Webpage</title>
 <br>
 <div class="main">

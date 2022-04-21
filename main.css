@@ -28,7 +28,7 @@ h1{padding:5px;background-color:#CDC9BC; font-family: Arial, Helvetica, sans-ser
 h2{padding:5px; font-family: Arial, Helvetica, sans-serif; color:#8D7144 ;}
 
 /* The navigation bar (iframe) */
-#header{width: 100%; height:140px; overflow: hidden;}
+#header{width: 100%;  overflow: hidden;}
 
 /* The footer (iframe) */
 #footer{ height:250px; overflow: hidden;}
@@ -45,7 +45,7 @@ h2{padding:5px; font-family: Arial, Helvetica, sans-serif; color:#8D7144 ;}
 	filter: grayscale(100%) !important; height:140px;border:solid 1px #999;margin:3px;}
 
 /* The main div */
-.main{width:80%;font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; font-size:15px;text-align:justify; overflow-x: hidden;padding:30px;background-color:rgba(255, 255, 255, 0.7); width:100%;color:#443201;}
+.main{width:80%;font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; font-size:25px;text-align:justify; overflow-x: hidden;padding:30px;background-color:rgba(255, 255, 255, 0.7); width:100%;color:#443201;}
 
 /* Subdiv within the main div */
 .mytext{width:80%;padding-right:100px;text-align:justify;}
