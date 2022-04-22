@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<style>
+	@import "main.css";
+	.pronoun_title{border: solid 1px black; padding:5px; background-color:#fff;}
+	.pronoun_cell{padding:5px}
+	.english_pronoun{background-color:rgba(255, 255, 255, 0.5); padding-left:10px;}
+	.accentbutton{        background-color: #CBBD94;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        margin:10px; font-size:20px;}
+	input[type=checkbox] {width:20px; height:20px;}
+	.submitandhint{        background-color: #AEA179;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	#app{background-color:rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	.monthexlp{padding-right:50px;}
+
+	#answer{ font-size:20px;}
+
+	h8{font-size:22px;}
+	h9{font-size:38px; font-weight:bold;}
+</style>
+
+<title>Gaelic Months of the Year Quiz</title>
+
+
+<html>
+
+<body onload="savedata()">
+<iframe id="header" src="header.htm" frameBorder="0" scrolling="no"></iframe>
+
+<div id="language">
+ <ul id="languageul">
+  <li class="languageli"><a href="gaelic/index.html" class="languagelink"><img src="gaelicflag.png" class="flag"><br> G&agrave;idhlig</a></li>
+
+  <li class="languageli"><a href="index.html" class="languagelink"><img src="englishflag.png" class="flag"><br> English</a></li>
+</ul> 
+ </div>
+<br>
+
+<meta charset="utf-8">
+
+<div class="main">
+<br>
+
+<center>
+<div class="mytext">
+<h1>Welsh Numbers Quiz (1-10)</h1>
+
+<div align="center">
+
+ <form name="welsh_numberQuiz" onsubmit="return validateAnswer()" action="">
+<font size=6><welsh_numberno></welsh_number09:42 22/04/2022no></font>       	
+<br>
+	<input type="text" name="answer" id="answer" autofocus="autofocus" autocomplete="off"> <br>
+<result></result>
+<br>
+
+	<br>
+	<button type="submit" class="submitandhint">Submit</button> <button type="button" onclick="giveHint()" class="submitandhint">Hint</button> <br>
+	<font size="3"><hint></hint> </font>
+
+   </form><br>
+
+<button type="button" onclick="return add_a()" class="accentbutton">â</button>
+<button type="button" onclick="return add_e()" class="accentbutton">ê</button>
+<button type="button" onclick="return add_i()" class="accentbutton">î</button>
+<button type="button" onclick="return add_o()" class="accentbutton">ô</button>
+<button type="button" onclick="return add_u()" class="accentbutton">û</button>
+<button type="button" onclick="return add_w()" class="accentbutton">ŵ</button>
+<button type="button" onclick="return add_y()" class="accentbutton">ŷ</button>
+
+</font>
+<center>
+<br><br>Enter the number in Welsh corresponding to the number shown. <br>A cheat sheet is down below. <br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+
+<br><br>
+<b>Cheat Sheet</b>
+<table>
+<tr>
+	<td width="200px"><font size=6>1</fomt></td><td><font size=6>un</font><td></tr><tr>
+	<td><font size=6>2</fomt></td><td><font size=6>dau</font><td></tr><tr>
+	<td><font size=6>3</fomt></td><td><font size=6>tri</font><td></tr><tr>
+	<td><font size=6>4</fomt></td><td><font size=6>pedwar</font><td></tr><tr>
+	<td><font size=6>5</fomt></td><td><font size=6>pump</font><td></tr><tr>
+	<td><font size=6>6</fomt></td><td><font size=6>chwech</font><td></tr><tr>
+	<td><font size=6>7</fomt></td><td><font size=6>saith</font><td></tr><tr>
+	<td><font size=6>8</fomt></td><td><font size=6>wyth</font><td></tr><tr>
+	<td><font size=6>9</fomt></td><td><font size=6>naw</font><td></tr><tr>
+
+</tr>
+
+</table>
+</center>
+<br><br>
+If you find this useful fire me an e-mail at arelennox@gmail.com and let me know! I want to make more similar programs for Welsh (or other languages) - but only if it's a thing people actually use. If you have any issues or requests for other quizes, let me know that too. <br><br>
+The game is completely free, but consider a donation to <a href="https://www.refuweegee.co.uk/">Refuweegee</a>* if you use it often.<br>
+<b>*Refuweegee are currently not accepting donations due to COVID-19, consider donating to <a href="https://scotland.shelter.org.uk/">Shelter Scotland</a> instead.</b>
+<br><br>
+</div>
+<script>
+
+function add_a() {
+	insertAtCursor(document.getElementById("answer"), 'â')
+	document.getElementById("answer").focus();
+}
+function add_e() {
+	insertAtCursor(document.getElementById("answer"), 'ê')
+	document.getElementById("answer").focus();
+}
+function add_i() {
+	insertAtCursor(document.getElementById("answer"), 'î')
+	document.getElementById("answer").focus();
+}
+function add_o() {
+	insertAtCursor(document.getElementById("answer"), 'ô')
+	document.getElementById("answer").focus();
+}
+function add_u() {
+	insertAtCursor(document.getElementById("answer"), 'û')
+	document.getElementById("answer").focus();
+}
+function add_w() {
+	insertAtCursor(document.getElementById("answer"), 'ŵ')
+	document.getElementById("answer").focus();
+}
+function add_y() {
+	insertAtCursor(document.getElementById("answer"), 'ŷ')
+	document.getElementById("answer").focus();
+}
+function savedata() {
+	newQuestion();
+	return true;
+}
+
+
+
+function insertAtCursor(myField, myValue) {
+    //IE support
+    if (document.selection) {
+        myField.focus();
+        sel = document.selection.createRange();
+        sel.text = myValue;
+    }
+    //MOZILLA and others
+    else if (myField.selectionStart || myField.selectionStart == '0') {
+        var startPos = myField.selectionStart;
+        var endPos = myField.selectionEnd;
+        myField.value = myField.value.substring(0, startPos)
+            + myValue
+            + myField.value.substring(endPos, myField.value.length);
+	myField.selectionEnd = startPos + myValue.length;
+    } else {
+        myField.value += myValue;
+    }
+}
+
+
+
+function validateAnswer() {
+	var x = document.forms["welsh_numberQuiz"]["answer"].value;
+	x = x.toLowerCase();
+	x = x.trim();
+	//alert("you wrote");
+	const result = document.querySelector('result');
+	if (x == a[0].toLowerCase()) {
+		result.style.color = "green";
+		result.textContent = "Correct!";
+		return true;	
+	} else {	
+		result.style.color = "red";
+		result.textContent = "Not quite!";
+		return false;
+	}
+}
+
+
+function newQuestion() {
+	var last_welsh_number = window.localStorage.getItem('last_welsh_number')
+	do {
+		a = getCombo();
+	}
+	while (a[0] == last_welsh_number);
+	welsh_number = a[0];
+	url = a[1];
+	window.localStorage.setItem('last_welsh_number', welsh_number)
+	const welsh_numberno = document.querySelector('welsh_numberno');
+	welsh_numberno.textContent = a[2];
+	const welsh_numberimage = document.querySelector('welsh_numberimage');
+	welsh_numberimage.innerHTML = "<img src="+url+" style='border: solid 2px black;'>";
+}
+
+function giveHint() {
+	hintno ++;
+	const hint = document.querySelector('hint');
+	hint.textContent = a[0].substr(0,hintno);
+}
+
+function getCombo() {
+
+   var random_welsh_number = Math.floor(Math.random() * welsh_numbers.length);
+   var welsh_number = welsh_numbers[random_welsh_number];
+   var url = 'gamefiles/welsh_numbers_quiz/'+welsh_number+'.jpg';
+   return [welsh_number, url, (random_welsh_number+1)];
+}
+
+
+var welsh_numbers = ['un', 'dau', 'tri','pedwar', 'pump', 'chwech', 'saith', 'wyth', 'naw', 'deg']
+
+
+
+var hintno = 0;
+
+
+</script>
+</div>
+</center>
+</div>
+<br><br>
+<br><br>
+<br><br>
+<div id="footerdiv">
+<iframe id="footer" src="footer.htm" frameBorder="0" scrolling="no"></iframe>
+</div>
+</body>
+</html>
