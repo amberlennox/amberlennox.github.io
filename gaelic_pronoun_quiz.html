@@ -1,48 +1,34 @@
 <!DOCTYPE html>
 <style>
-	@import "main.css";
-	.pronoun_title{border: solid 1px black; padding:5px; background-color:#fff;}
-	.pronoun_cell{padding:5px}
-	.english_pronoun{background-color:rgba(255, 255, 255, 0.5); padding-left:10px;}
-	.accentbutton{        background-color: #CBBD94;
-        color: #FFFFFF;
-        padding: 10px;
-        border-radius: 10px;
-        margin:10px; font-size:20px;}
-	input[type=checkbox] {width:20px; height:20px;}
-	.submitandhint{        background-color: #AEA179;
-        color: #FFFFFF;
-        padding: 10px;
-        border-radius: 10px;
-        -moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
-        margin:10px; font-size:20px;}
-
-	#app{background-color:rgba(255, 255, 255, 0.5);
-        padding: 10px;
-        border-radius: 10px;
-        -moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
-        margin:10px; font-size:20px;}
-
-	#answer{ font-size:20px;}
+@import "main.css"
 </style>
-
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+<script> 
+$(function(){
+  $("#header").load("header.htm"); 
+  $("#footer").load("footer.htm"); 
+});
+</script> 
 <title>Gaelic Prepositional Pronoun Quiz</title>
 
 
 <html>
 
 <body onload="savedata()">
-<iframe id="header" src="header.htm" frameBorder="0" scrolling="no"></iframe>
-
+<div id="header"></div>
 <div id="language">
  <ul id="languageul">
-  <li class="languageli"><a href="gaelic/index.html" class="languagelink"><img src="gaelicflag.png" class="flag"><br> G&agrave;idhlig</a></li>
+  <li class="languageli"><a href="gaelic/gaelic_geaman.html" class="languagelink"><img src="gaelicflag.png" class="flag"><br> G&agrave;idhlig</a></li>
 
-  <li class="languageli"><a href="index.html" class="languagelink"><img src="englishflag.png" class="flag"><br> English</a></li>
+  <li class="languageli"><a href="gaelic_quizzes.html" class="languagelink"><img src="englishflag.png" class="flag"><br> English</a></li>
 </ul> 
- </div>
+ 
+</div>
+<br>
 <br>
 
 <meta charset="utf-8">
