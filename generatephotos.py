@@ -61,6 +61,15 @@ for h in (f, g):
 	h.write("""@import "main.css"\n""")
 	h.write("""</style>\n""")
 
+
+	h.write("""<script\n""")
+	h.write("""    src="https://code.jquery.com/jquery-3.3.1.js" \n""")
+	h.write("""    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" \n""")
+	h.write("""    crossorigin="anonymous"> \n""")
+	h.write("""</script> \n""")
+
+
+
 	h.write("""<script>\n""")
 	h.write("""$(function(){\n""")
 	h.write("""  $("#header").load("header.htm"); \n""")
