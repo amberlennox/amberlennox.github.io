@@ -101,7 +101,9 @@ for h in (f, g):
 	h.write("""<center>\n""")
 
 	#Generate table
-	h.write(""" <ul class="monthul"> """)
+	h.write(""" <table width=100% height="500px"> """)
+	h.write(""" <tr><td width=20% class="photo_background">""")
+	h.write(""" <ul class="monthul_super"> """)
 	h.write("""  """)
 	
 	#Location of my intro blurb
@@ -192,12 +194,12 @@ for h in (f, g):
 		#Write the navigational list of albums
 		if h == f:
 			f.write("""<li class="monthlinks"><a href="Photos/%s/page.html" target="pictureframe" class="photolinks"> """ %(i))
-			f.write("""<img src="Photos/%s/thumbnails/small_%s" style="width:120px;border: solid 1px black;" class="myphotos"><br>\n""" %(i,thumb)) 
+			f.write("""<img src="Photos/%s/thumbnails/small_%s" style="width:180px;border: solid 1px black;" class="myphotos"><br>\n""" %(i,thumb)) 
 			f.write("""%s</a></li>\n""" %(english[month]))
 
 		if h == g:
 			g.write("""<li class="monthlinks"><a href="../Photos/%s/page.html" target="pictureframe" class="photolinks"><br> """ %(i))
-			g.write("""<img src="../Photos/%s/%s" style="width:120px;border: solid 1px black;" class="myphotos"><br>\n""" %(i,thumb)) 
+			g.write(r"""<img src="../Photos/%s/%s" style="width:180px;border: solid 1px black;" class="myphotos"><br>\n""" %(i,thumb)) 
 			g.write("""%s</a></li>\n""" %(gaelic[month]))
 		
 		#Close the subfolder's page
@@ -205,10 +207,10 @@ for h in (f, g):
 
 	#Insert my footer
 	h.write("""</ul>""")
-	h.write("""<br><br>""")
+	h.write("""</td><td class="photo_background">""")
 
 	#Load up iframe
-	h.write("""<iframe name="pictureframe" src='%s' frameBorder="0" width="100%%" style="overflow:auto;height:700px;"></iframe><br><br> \n """ %(target))
+	h.write("""<iframe name="pictureframe" src='%s' frameBorder="0" width="100%%" style="overflow:auto;height:500px;"></iframe><br><br></td></tr></table> \n """ %(target))
 	
 	h.write("""</ul></div>""")
 
