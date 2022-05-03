@@ -2,10 +2,16 @@
 <style>
 @import "main.css"
 </style>
+<script>
+$(function(){
+  $("#header").load("header.htm"); 
+  $("#footer").load("footer.htm"); 
+}); 
+</script> 
 <title>Amber Leamhnachd's Webpage</title>
 <html>
 <body>
-<iframe id="header" src="header.htm" frameBorder="0" scrolling="no"></iframe>
+<div id="header"></div>
 <div id="language">
 <ul id="languageul">
 <li class="languageli"> <a href="gaelic/dealbhan.html" class="languagelink"><img src="gaelicflag.png" class="flag"><br>G&agrave;idhlig</a></li>

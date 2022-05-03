@@ -61,6 +61,13 @@ for h in (f, g):
 	h.write("""@import "main.css"\n""")
 	h.write("""</style>\n""")
 
+	h.write("""<script>\n""")
+	h.write("""$(function(){\n""")
+	h.write("""  $("#header").load("header.htm"); \n""")
+	h.write("""  $("#footer").load("footer.htm"); \n""")
+	h.write("""}); \n""")
+	h.write("""</script> \n""")
+
 	if h == f:
 		f.write("""<title>Amber Leamhnachd's Webpage</title>\n""")
 	if h == g:
@@ -69,7 +76,7 @@ for h in (f, g):
 	h.write("""<body>\n""")
 	
 	#My header that I use
-	h.write("""<iframe id="header" src="header.htm" frameBorder="0" scrolling="no"></iframe>\n""")
+	h.write("""<div id="header"></div>\n""")
 
 	if h == f:
 		f.write("""<div id="language">\n""")
