@@ -32,9 +32,16 @@
 	h8{font-size:22px;}
 	h9{font-size:38px; font-weight:bold;}
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
 <script> 
-$("#header").load("header.html");
+$(function(){
+  $("#header").load("header.htm"); 
+  $("#footer").load("footer.htm"); 
+});
 </script> 
 <title>Gaelic Birds Quiz</title>
 
@@ -42,7 +49,7 @@ $("#header").load("header.html");
 <html>
 
 <body onload="savedata()">
-<div id="header" style="height:200px;"></div>
+<div id="header"></div>
 <div id="language">
  <ul id="languageul">
   <li class="languageli"><a href="gaelic/index.html" class="languagelink"><img src="gaelicflag.png" class="flag"><br> G&agrave;idhlig</a></li>

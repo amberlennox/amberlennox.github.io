@@ -32,14 +32,24 @@
 	h8{font-size:22px;}
 	h9{font-size:38px; font-weight:bold;}
 </style>
-
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+<script> 
+$(function(){
+  $("#header").load("header.htm"); 
+  $("#footer").load("footer.htm"); 
+});
+</script> 
 <title>Gaelic Months of the Year Quiz</title>
 
 
 <html>
 
 <body onload="savedata()">
-<iframe id="header" src="header.htm" frameBorder="0" scrolling="no"></iframe>
+<div id="header"></div>
 
 <div id="language">
  <ul id="languageul">
