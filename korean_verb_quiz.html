@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<style>
+	@import "main.css";
+	.pronoun_title{border: solid 1px black; padding:5px; background-color:#fff;}
+	.pronoun_cell{padding:5px}
+	.english_pronoun{background-color:rgba(255, 255, 255, 0.5); padding-left:10px;}
+	.accentbutton{        background-color: #CBBD94;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        margin:10px; font-size:20px;}
+	input[type=checkbox] {width:20px; height:20px;}
+	.submitandhint{        background-color: #AEA179;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	#app{background-color:rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	.verbexlp{padding-right:50px;}
+
+	#answer{ font-size:20px;}
+
+	h8{font-size:22px;}
+	h9{font-size:38px; font-weight:bold;}
+</style>
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+<script> 
+$(function(){
+  $("#header").load("header.htm"); 
+  $("#footer").load("footer.htm"); 
+});
+</script> 
+<title>Korean Verb Quiz</title>
+
+
+<html>
+
+<body onload="savedata()">
+<div id="header"></div>
+
+<div id="language">
+ <ul id="languageul">
+  <li class="languageli"><a href="gaelic/index.html" class="languagelink"><img src="gaelicflag.png" class="flag"><br> G&agrave;idhlig</a></li>
+
+  <li class="languageli"><a href="index.html" class="languagelink"><img src="englishflag.png" class="flag"><br> English</a></li>
+</ul> 
+ </div>
+<br>
+
+<meta charset="utf-8">
+
+<div class="main">
+<br>
+
+<center>
+<div class="mytext">
+<h1>Korean Verb Quiz</h1>
+
+<div align="center">
+
+ <form name="verbQuiz" onsubmit="return validateAnswer()" action="">
+      	
+<div style=""><br><verbimage></verbimage></div><br>
+	<input type="text" name="answer" id="answer" autofocus="autofocus" autocomplete="off"> <br>
+<result></result>
+<br>
+	<br>
+	<button type="submit" class="submitandhint">Submit</button> <button type="button" onclick="giveHint()" class="submitandhint">Hint (Hangul)</button> <button type="button" onclick="giveHintr()" class="submitandhint">Hint (Romanised)</button> <br>
+	<font size="3"><hint></hint><br><hintr></hintr> </font>
+
+   </form><br>
+
+</font>
+<center>
+<br><br>Enter the verb corresponding to the number/picture shown. <br>A cheat sheet is down below. <br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+
+Vocab corresponds to <a href="https://www.fluentin3months.com/food-in-korean/" target="_blank">Korean food terms</a>.
+<br><br>
+<b>Cheat Sheet</b>
+<table>
+<tr>
+	<td><img src="gamefiles/korean_verb_quiz/apple_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>사과 (sagwa)</h9><p><h8>Apple</h8><p>
+	<td><img src="gamefiles/korean_verb_quiz/pear_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>배 (bae)</h9><p><h8>Pear</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/korean_verb_quiz/peach_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>복숭아 (bogsunga)</h9><p><h8>Peach</h8><p>
+	<td><img src="gamefiles/korean_verb_quiz/raspberry_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>산딸기 (santtalgi)</h9><p><h8>Raspberry</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/korean_verb_quiz/strawberry_name.jpg" style="width:300px;border: solid 1px black;"></td>		
+		<td class="verbexlp"><h9>딸기 (ttalgi)</h9><p><h8>Strawberry</h8><p>
+	<td><img src="gamefiles/korean_verb_quiz/kiwi_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>키위 (kiwi)</h9><p><h8>Kiwi</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/korean_verb_quiz/watermelon_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>수박 (subak)</h9><p><h8>Watermelon</h8><p>
+	<td><img src="gamefiles/korean_verb_quiz/blueberry_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>블루베리 (beulluberi)</h9><p><h8>Blueberry</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/korean_verb_quiz/banana_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>바나나 (banana)</h9><p><h8>Banana</h8><p>
+	<td><img src="gamefiles/korean_verb_quiz/grapes_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>포도 (podo)</h9><p><h8>Grape</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/korean_verb_quiz/pineapple_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>파인애플 (painaepeul)</h9><p><h8>Pineapple</h8><p>
+	<td><img src="gamefiles/korean_verb_quiz/cherry_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>체리 (cheri)</h9><p><h8>Cherry</h8><p>
+
+
+
+</tr>
+
+<tr>
+	<td><img src="gamefiles/korean_verb_quiz/lemon_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>레몬 (lemon)</h9><p><h8>Lemon</h8><p>
+	<td><img src="gamefiles/korean_verb_quiz/verb_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>과일 (gwail)</h9><p><h8>verb</h8><p>
+
+
+
+</tr>
+
+</table>
+</center>
+<br><br>
+If you find this useful fire me an e-mail at arelennox@gmail.com and let me know! I want to make more similar programs for Korean (or other languages) - but only if it's a thing people actually use. If you have any issues or requests for other quizes, let me know that too. <br><br>
+The game is completely free, but consider a donation to <a href="https://www.refuweegee.co.uk/">Refuweegee</a>* if you use it often.<br>
+<b>*Refuweegee are currently not accepting donations due to COVID-19, consider donating to <a href="https://scotland.shelter.org.uk/">Shelter Scotland</a> instead.</b>
+<br><br>
+</div>
+<script>
+
+function add_a() {
+	insertAtCursor(document.getElementById("answer"), 'ㅂ')
+	document.getElementById("answer").focus();
+}
+function add_o() {
+	insertAtCursor(document.getElementById("answer"), 'ㅣ')
+	document.getElementById("answer").focus();
+}
+
+function savedata() {
+	newQuestion();
+	return true;
+}
+
+
+
+function insertAtCursor(myField, myValue) {
+    //IE support
+    if (document.selection) {
+        myField.focus();
+        sel = document.selection.createRange();
+        sel.text = myValue;
+    }
+    //MOZILLA and others
+    else if (myField.selectionStart || myField.selectionStart == '0') {
+        var startPos = myField.selectionStart;
+        var endPos = myField.selectionEnd;
+        myField.value = myField.value.substring(0, startPos)
+            + myValue
+            + myField.value.substring(endPos, myField.value.length);
+	myField.selectionEnd = startPos + myValue.length;
+    } else {
+        myField.value += myValue;
+    }
+}
+
+
+
+function validateAnswer() {
+	var x = document.forms["verbQuiz"]["answer"].value;
+	x = x.toLowerCase();
+	x = x.trim();
+	//alert("you wrote");
+	const result = document.querySelector('result');
+	if (x == a[0].toLowerCase() || x == a[2].toLowerCase()) {
+		result.style.color = "green";
+		result.textContent = "Correct!";
+		return true;	
+	} else {	
+		result.style.color = "red";
+		result.textContent = "Not quite!";
+		return false;
+	}
+}
+
+
+function newQuestion() {
+	var last_verb = window.localStorage.getItem('last_verb')
+	do {
+		a = getCombo();
+	}
+	while (a[0] == last_verb);
+	verb = a[0];
+	url = a[1];
+	window.localStorage.setItem('last_verb', verb)
+	const verbimage = document.querySelector('verbimage');
+	verbimage.innerHTML = "<img src="+url+" style='border: solid 2px black;'>";
+}
+
+function giveHint() {
+	hintno ++;
+	const hint = document.querySelector('hint');
+	hint.textContent = a[0].substr(0,hintno);
+}
+
+function giveHintr() {
+	hintnor ++;
+	const hintr = document.querySelector('hintr');
+	hintr.textContent = a[2].substr(0,hintnor);
+}
+
+function getCombo() {
+
+   var random_verb = Math.floor(Math.random() * indefinite_verb.length);
+   var verb = anglicized_verb[random_verb];
+   var alt_verb = korean_verb[random_verb]
+   var url = 'gamefiles/korean_verbs_quiz/'+indefinite_verb[random_verb]+'.jpg';
+   return [verb, url, alt_verb, (random_verb+1)];
+}
+
+
+var indefinite_verb = ['buy', 'come', 'drink', 'eat', 'give', 'go', 'hear', 'learn', 'read', 'see', 'walk', 'write', 'jump', 'stand', 'run', 'swim', 'yawn', 'sit']
+var anglicized_verb = ['이다', '오다', '마시다', '먹다', '주다', '가다', '듣다', '배우다', '읽다', '보다', '걷다', '쓰다', '점프하다', '서다', '']
+var korean_verb = ['sada', 'oda', 'masida', 'meokda', 'juda', 'gada', 'deutda', 'baeuda', 'ikda', 'boda', 'geotda', 'sseuda', 'jeompeuhada', 'seoda', '']
+
+
+var hintno = 0;
+var hintnor = 0;
+
+</script>
+</div>
+</center>
+</div>
+<br><br>
+<br><br>
+<br><br>
+<div id="footerdiv">
+<iframe id="footer" src="footer.htm" frameBorder="0" scrolling="no"></iframe>
+</div>
+</body>
+</html>
