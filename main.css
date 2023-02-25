@@ -1,6 +1,6 @@
 
 /* Background image */
-body{background-image:url("background_arran.jpg"); background-size:100% 100%; padding:0px; margin:0px;  background-attachment: fixed;overflow-x:hidden;}
+/*  body{background-image:url("background_arran.jpg"); background-size:100% 100%; padding:0px; margin:0px;  background-attachment: fixed;overflow-x:hidden;} /*
 
 /* Language selection */
 #language{ position:absolute; top:5px; right:10px;font-size:15px;}
@@ -31,10 +31,10 @@ h2{padding:5px; font-family: Arial, Helvetica, sans-serif; color:#8D7144 ;}
 #header{width: 100%;  overflow: hidden;}
 
 /* The footer (iframe) */
-#footer{ height:250px; overflow: hidden;}
+#footer{ height:30%; overflow: hidden; width:100%;}
 
 /* Thie footerdiv */
-#footerdiv{background-color:rgba(239, 219, 165, 0.5); width:100%;}
+#footerdiv{background-color:rgba(156, 74, 191, 0.2); width:100%;}
 
 
 .wrapper{width: 100%;background-color:rgba(255, 255, 255, 0.8);}
@@ -45,7 +45,7 @@ h2{padding:5px; font-family: Arial, Helvetica, sans-serif; color:#8D7144 ;}
 	filter: grayscale(100%) !important; height:140px;border:solid 1px #999;margin:3px;}
 
 /* The main div */
-.main{width:80%;font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; font-size:25px;text-align:justify; overflow-x: hidden;padding:30px;background-color:rgba(255, 255, 255, 0.7); width:100%;color:#443201;}
+.main{width:80%;font-family: Candara; font-size:25px;text-align:justify; overflow-x: hidden;padding:30px;background-color:rgba(255, 255, 255, 0.7); width:100%;color:#1E197F;}
 
 /* Subdiv within the main div */
 .mytext{width:80%;padding-right:100px;text-align:justify;}
