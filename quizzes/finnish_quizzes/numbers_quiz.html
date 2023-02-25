@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<style>
+	@import "../../main.css";
+	.pronoun_title{border: solid 1px black; padding:5px; background-color:#fff;}
+	.pronoun_cell{padding:5px}
+	.english_pronoun{background-color:rgba(255, 255, 255, 0.5); padding-left:10px;}
+	.accentbutton{        background-color: #CBBD94;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        margin:10px; font-size:20px;}
+	input[type=checkbox] {width:20px; height:20px;}
+	.submitandhint{        background-color: #AEA179;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	#app{background-color:rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	.monthexlp{padding-right:50px;}
+
+	#answer{ font-size:20px;}
+
+	h8{font-size:22px;}
+	h9{font-size:38px; font-weight:bold;}
+</style>
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+<script> 
+$(function(){
+  $("#header").load("../../header.htm"); 
+  $("#footer").load("../../footer.htm"); 
+});
+</script> 
+<title>Finnish Numbers Quiz</title>
+
+
+<html>
+
+<body onload="savedata()">
+
+<br>
+
+<meta charset="utf-8">
+
+<div class="main">
+<br>
+
+<center>
+<div class="mytext">
+<h1>Finnish Numbers Quiz (1-10)</h1>
+
+<div align="center">
+
+ <form name="finnish_numberQuiz" onsubmit="return validateAnswer()" action="">
+<font size=6><finnish_numberno></finnish_number09:42 22/04/2022no></font>       	
+<br>
+	<input type="text" name="answer" id="answer" autofocus="autofocus" autocomplete="off"> <br>
+<result></result>
+<br>
+
+	<br>
+	<button type="submit" class="submitandhint">Submit</button> <button type="button" onclick="giveHint()" class="submitandhint">Hint</button> <br>
+	<font size="3"><hint></hint> </font>
+
+   </form><br>
+
+<button type="button" onclick="return add_a()" class="accentbutton">ä</button>
+<button type="button" onclick="return add_o()" class="accentbutton">ö</button>
+
+</font>
+<center>
+<br><br>Enter the number in Finnish corresponding to the number shown. <br>A cheat sheet is down below. <br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+
+<br><br>
+<b>Cheat Sheet</b>
+<table>
+<tr>
+	<td width="200px"><font size=6>1</fomt></td><td><font size=6>yksi</font><td></tr><tr>
+	<td><font size=6>2</fomt></td><td><font size=6>kaksi</font><td></tr><tr>
+	<td><font size=6>3</fomt></td><td><font size=6>kolme</font><td></tr><tr>
+	<td><font size=6>4</fomt></td><td><font size=6>neljä</font><td></tr><tr>
+	<td><font size=6>5</fomt></td><td><font size=6>viisi</font><td></tr><tr>
+	<td><font size=6>6</fomt></td><td><font size=6>kuusi</font><td></tr><tr>
+	<td><font size=6>7</fomt></td><td><font size=6>seitsemän</font><td></tr><tr>
+	<td><font size=6>8</fomt></td><td><font size=6>kahdeksan</font><td></tr><tr>
+	<td><font size=6>9</fomt></td><td><font size=6>yhdeksän</font><td></tr><tr>
+	<td><font size=6>10</fomt></td><td><font size=6>kymmenen</font><td></tr><tr>
+</tr>
+
+</table>
+</center>
+<br><br>
+If you find this useful fire me an e-mail at arelennox@gmail.com and let me know! I want to make more similar programs for Finnish (or other languages) - but only if it's a thing people actually use. If you have any issues or requests for other quizes, let me know that too. <br><br>
+The game is completely free, but consider a donation to <a href="https://www.refuweegee.co.uk/">Refuweegee</a>* if you use it often.<br>
+<b>*Refuweegee are currently not accepting donations due to COVID-19, consider donating to <a href="https://scotland.shelter.org.uk/">Shelter Scotland</a> instead.</b>
+<br><br>
+</div>
+<script>
+
+function add_a() {
+	insertAtCursor(document.getElementById("answer"), 'ä')
+	document.getElementById("answer").focus();
+}
+function add_o() {
+	insertAtCursor(document.getElementById("answer"), 'ö')
+	document.getElementById("answer").focus();
+}
+
+function savedata() {
+	newQuestion();
+	return true;
+}
+
+
+
+function insertAtCursor(myField, myValue) {
+    //IE support
+    if (document.selection) {
+        myField.focus();
+        sel = document.selection.createRange();
+        sel.text = myValue;
+    }
+    //MOZILLA and others
+    else if (myField.selectionStart || myField.selectionStart == '0') {
+        var startPos = myField.selectionStart;
+        var endPos = myField.selectionEnd;
+        myField.value = myField.value.substring(0, startPos)
+            + myValue
+            + myField.value.substring(endPos, myField.value.length);
+	myField.selectionEnd = startPos + myValue.length;
+    } else {
+        myField.value += myValue;
+    }
+}
+
+
+
+function validateAnswer() {
+	var x = document.forms["finnish_numberQuiz"]["answer"].value;
+	x = x.toLowerCase();
+	x = x.trim();
+	//alert("you wrote");
+	const result = document.querySelector('result');
+	if (x == a[0].toLowerCase()) {
+		result.style.color = "green";
+		result.textContent = "Correct!";
+		return true;	
+	} else {	
+		result.style.color = "red";
+		result.textContent = "Not quite!";
+		return false;
+	}
+}
+
+
+function newQuestion() {
+	var last_finnish_number = window.localStorage.getItem('last_finnish_number')
+	do {
+		a = getCombo();
+	}
+	while (a[0] == last_finnish_number);
+	finnish_number = a[0];
+	url = a[1];
+	window.localStorage.setItem('last_finnish_number', finnish_number)
+	const finnish_numberno = document.querySelector('finnish_numberno');
+	finnish_numberno.textContent = a[2];
+	const finnish_numberimage = document.querySelector('finnish_numberimage');
+	finnish_numberimage.innerHTML = "<img src="+url+" style='border: solid 2px black;'>";
+}
+
+function giveHint() {
+	hintno ++;
+	const hint = document.querySelector('hint');
+	hint.textContent = a[0].substr(0,hintno);
+}
+
+function getCombo() {
+
+   var random_finnish_number = Math.floor(Math.random() * finnish_numbers.length);
+   var finnish_number = finnish_numbers[random_finnish_number];
+   var url = 'gamefiles/finnish_numbers_quiz/'+finnish_number+'.jpg';
+   return [finnish_number, url, (random_finnish_number+1)];
+}
+
+
+var finnish_numbers = ['yksi', 'kaksi', 'kolme','neljä', 'viisi', 'kuusi', 'seitsemän', 'kahdeksan', 'yhdeksän', 'kymmenen']
+
+
+
+var hintno = 0;
+
+
+</script>
+</div>
+</center>
+</div>
+<br><br>
+<br><br>
+<br><br>
+<div id="footerdiv">
+<iframe id="footer" src="../../footer.htm" frameBorder="0" scrolling="no"></iframe>
+</div>
+</body>
+</html>

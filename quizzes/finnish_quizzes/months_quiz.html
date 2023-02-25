@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<style>
+	@import "../../main.css";
+	.pronoun_title{border: solid 1px black; padding:5px; background-color:#fff;}
+	.pronoun_cell{padding:5px}
+	.english_pronoun{background-color:rgba(255, 255, 255, 0.5); padding-left:10px;}
+	.accentbutton{        background-color: #CBBD94;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        margin:10px; font-size:20px;}
+	input[type=checkbox] {width:20px; height:20px;}
+	.submitandhint{        background-color: #AEA179;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	#app{background-color:rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	.monthexlp{padding-right:50px;}
+
+	#answer{ font-size:20px;}
+
+	h8{font-size:22px;}
+	h9{font-size:38px; font-weight:bold;}
+</style>
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+<script> 
+$(function(){
+  $("#header").load("../../header.htm"); 
+  $("#footer").load("../../footer.htm"); 
+});
+</script> 
+<title>Finnish Months of the Year Quiz</title>
+
+
+<html>
+
+<body onload="savedata()">
+<div id="header"></div>
+
+<br>
+
+<meta charset="utf-8">
+
+<div class="main">
+<br>
+
+<center>
+<div class="mytext">
+<h1>Months Quiz</h1>
+
+<div align="center">
+
+ <form name="monthQuiz" onsubmit="return validateAnswer()" action="">
+      	
+<div style=""><br><monthimage></monthimage></div><br>
+	<input type="text" name="answer" id="answer" autofocus="autofocus" autocomplete="off"> <br>
+<result></result>
+<br>
+<font size=6><monthno></monthno></font> 
+	<br>
+	<button type="submit" class="submitandhint">Submit</button> <button type="button" onclick="giveHint()" class="submitandhint">Hint</button> <br>
+	<font size="3"><hint></hint> </font>
+
+   </form><br>
+
+<button type="button" onclick="return add_a()" class="accentbutton">ä</button>
+<button type="button" onclick="return add_o()" class="accentbutton">ö</button>
+
+</font>
+<center>
+<br><br>Enter the month corresponding to the number/picture shown. <br>A cheat sheet is down below. <br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+
+Pictures were chosen to correspond roughly to <a href="https://uusikielemme.fi/finnish-vocabulary/interesting-words/the-meaning-of-the-finnish-months" target="_blank">the meanings of Finnish months</a>.
+<br><br>
+<b>Cheat Sheet</b>
+<table>
+<tr>
+	<td><img src="gamefiles/months_quiz/Tammikuu_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>1.</h9><p><h8>Tammikuu</h8><p>
+	<td><img src="gamefiles/months_quiz/Helmikuu_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>2.</h9><p><h8>Helmikuu</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/months_quiz/Maaliskuu_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>3.</h9><p><h8>Maaliskuu</h8><p>
+	<td><img src="gamefiles/months_quiz/Huhtikuu_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>4.</h9><p><h8>Huhtikuu</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/months_quiz/Toukokuu_name.jpg" style="width:300px;border: solid 1px black;"></td>		
+		<td class="monthexlp"><h9>5.</h9><p><h8>Toukokuu</h8><p>
+	<td><img src="gamefiles/months_quiz/Kesäkuu_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>6.</h9><p><h8>Kesäkuu</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/months_quiz/Heinäkuu_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>7.</h9><p><h8>Heinäkuu</h8><p>
+	<td><img src="gamefiles/months_quiz/Elokuu_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>8.</h9><p><h8>Elokuu</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/months_quiz/Syyskuu_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>9.</h9><p><h8>Syyskuu</h8><p>
+	<td><img src="gamefiles/months_quiz/Lokakuu_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>10.</h9><p><h8>Lokakuu</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/months_quiz/Marraskuu_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>11.</h9><p><h8>Marraskuu</h8><p>
+	<td><img src="gamefiles/months_quiz/Joulukuu_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="monthexlp"><h9>12.</h9><p><h8>Joulukuu</h8><p>
+
+
+
+</tr>
+
+</table>
+</center>
+<br><br>
+If you find this useful fire me an e-mail at arelennox@gmail.com and let me know! I want to make more similar programs for Finnish (or other languages) - but only if it's a thing people actually use. If you have any issues or requests for other quizes, let me know that too. <br><br>
+The game is completely free, but consider a donation to <a href="https://www.refuweegee.co.uk/">Refuweegee</a>* if you use it often.<br>
+<b>*Refuweegee are currently not accepting donations due to COVID-19, consider donating to <a href="https://scotland.shelter.org.uk/">Shelter Scotland</a> instead.</b>
+<br><br>
+</div>
+<script>
+
+function add_a() {
+	insertAtCursor(document.getElementById("answer"), 'ä')
+	document.getElementById("answer").focus();
+}
+function add_o() {
+	insertAtCursor(document.getElementById("answer"), 'ö')
+	document.getElementById("answer").focus();
+}
+
+function savedata() {
+	newQuestion();
+	return true;
+}
+
+
+
+function insertAtCursor(myField, myValue) {
+    //IE support
+    if (document.selection) {
+        myField.focus();
+        sel = document.selection.createRange();
+        sel.text = myValue;
+    }
+    //MOZILLA and others
+    else if (myField.selectionStart || myField.selectionStart == '0') {
+        var startPos = myField.selectionStart;
+        var endPos = myField.selectionEnd;
+        myField.value = myField.value.substring(0, startPos)
+            + myValue
+            + myField.value.substring(endPos, myField.value.length);
+	myField.selectionEnd = startPos + myValue.length;
+    } else {
+        myField.value += myValue;
+    }
+}
+
+
+
+function validateAnswer() {
+	var x = document.forms["monthQuiz"]["answer"].value;
+	x = x.toLowerCase();
+	x = x.trim();
+	//alert("you wrote");
+	const result = document.querySelector('result');
+	if (x == a[0].toLowerCase() || x == a[2].toLowerCase()) {
+		result.style.color = "green";
+		result.textContent = "Correct!";
+		return true;	
+	} else {	
+		result.style.color = "red";
+		result.textContent = "Not quite!";
+		return false;
+	}
+}
+
+
+function newQuestion() {
+	var last_month = window.localStorage.getItem('last_month')
+	do {
+		a = getCombo();
+	}
+	while (a[0] == last_month);
+	month = a[0];
+	url = a[1];
+	window.localStorage.setItem('last_month', month)
+	const monthno = document.querySelector('monthno');
+	monthno.textContent = a[3];
+	const monthimage = document.querySelector('monthimage');
+	monthimage.innerHTML = "<img src="+url+" style='border: solid 2px black;'>";
+}
+
+function giveHint() {
+	hintno ++;
+	const hint = document.querySelector('hint');
+	hint.textContent = a[0].substr(0,hintno);
+}
+
+function getCombo() {
+
+   var random_month = Math.floor(Math.random() * indefinite_months.length);
+   var month = indefinite_months[random_month];
+   var alt_month = definite_months[random_month]
+   var url = 'gamefiles/months_quiz/'+month+'.jpg';
+   return [month, url, alt_month, (random_month+1)];
+}
+
+
+var indefinite_months = ['Tammikuu', 'Helmikuu', 'Maaliskuu', 'Huhtikuu', 'Toukokuu', 'Kesäkuu', 'Heinäkuu', 'Elokuu', 'Syyskuu', 'Lokakuu', 'Marraskuu', 'Joulukuu']
+var definite_months = ['Tammikuu', 'Helmikuu', 'Maaliskuu', 'Huhtikuu', 'Toukokuu', 'Kesäkuu', 'Heinäkuu', 'Elokuu', 'Syyskuu', 'Lokakuu', 'Marraskuu', 'Joulukuu']
+
+
+var hintno = 0;
+
+
+</script>
+</div>
+</center>
+</div>
+<br><br>
+<br><br>
+<br><br>
+<div id="footerdiv">
+<iframe id="footer" src="../../footer.htm" frameBorder="0" scrolling="no"></iframe>
+</div>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<style>
+	@import "../../main.css";
+	.pronoun_title{border: solid 1px black; padding:5px; background-color:#fff;}
+	.pronoun_cell{padding:5px}
+	.english_pronoun{background-color:rgba(255, 255, 255, 0.5); padding-left:10px;}
+	.accentbutton{        background-color: #CBBD94;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        margin:10px; font-size:20px;}
+	input[type=checkbox] {width:20px; height:20px;}
+	.submitandhint{        background-color: #AEA179;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	#app{background-color:rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	.seasonexlp{padding-right:50px;}
+
+	#answer{ font-size:20px;}
+
+	h8{font-size:22px;}
+	h9{font-size:38px; font-weight:bold;}
+</style>
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+<script> 
+$(function(){
+  $("#header").load("../../header.htm"); 
+  $("#footer").load("../../footer.htm"); 
+});
+</script> 
+<title>Gaelic Seasons Quiz</title>
+
+
+<html>
+
+<body onload="savedata()">
+<div id="header"></div>
+
+<br>
+
+<meta charset="utf-8">
+
+<div class="main">
+<br>
+
+<center>
+<div class="mytext">
+<h1>Seasons Quiz</h1>
+
+<div align="center">
+
+ <form name="seasonQuiz" onsubmit="return validateAnswer()" action="">
+      	
+<div style=""><br><seasonimage></seasonimage></div><br>
+	<input type="text" name="answer" id="answer" autofocus="autofocus" autocomplete="off"> <br>
+<result></result>
+<br>
+
+	<br>
+	<button type="submit" class="submitandhint">Submit</button> <button type="button" onclick="giveHint()" class="submitandhint">Hint</button> <br>
+	<font size="3"><hint></hint> </font>
+
+   </form><br>
+
+<button type="button" onclick="return add_a()" class="accentbutton">à</button>
+<button type="button" onclick="return add_e()" class="accentbutton">è</button>
+<button type="button" onclick="return add_i()" class="accentbutton">ì</button>
+<button type="button" onclick="return add_o()" class="accentbutton">ò</button>
+<button type="button" onclick="return add_u()" class="accentbutton">ù</button>
+
+</font>
+<center>
+<br><br>Enter the season corresponding to the picture shown. <br>A cheat sheet is down below. <br>(season names are accepted with and without the definite article.)
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+
+<br><br>
+<b>Cheat Sheet</b>
+<table>
+<tr>
+	<td><img src="gamefiles/seasons_quiz/earrach_title.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="seasonexlp"><p><h8>an t-earrach</h8><p>
+	<td><img src="gamefiles/seasons_quiz/samhradh_title.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="seasonexlp"><p><h8>am samhradh</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/seasons_quiz/foghar_title.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="seasonexlp"><p><h8>am foghar</h8><p>
+	<td><img src="gamefiles/seasons_quiz/geamhradh_title.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="seasonexlp"><p><h8>an geamhradh</h8><p>
+</tr>
+
+
+</table>
+</center>
+<br><br>
+If you find this useful fire me an e-mail at arelennox@gmail.com and let me know! I want to make more similar programs for Gaelic (or other languages) - but only if it's a thing people actually use. If you have any issues or requests for other quizes, let me know that too. <br><br>
+The game is completely free, but consider a donation to <a href="https://www.refuweegee.co.uk/">Refuweegee</a>* if you use it often.<br>
+<b>*Refuweegee are currently not accepting donations due to COVID-19, consider donating to <a href="https://scotland.shelter.org.uk/">Shelter Scotland</a> instead.</b>
+<br><br>
+</div>
+<script>
+
+function add_a() {
+	insertAtCursor(document.getElementById("answer"), 'à')
+	document.getElementById("answer").focus();
+}
+function add_e() {
+	insertAtCursor(document.getElementById("answer"), 'è')
+	document.getElementById("answer").focus();
+}
+function add_i() {
+	insertAtCursor(document.getElementById("answer"), 'ì')
+	document.getElementById("answer").focus();
+}
+function add_o() {
+	insertAtCursor(document.getElementById("answer"), 'ò')
+	document.getElementById("answer").focus();
+}
+function add_u() {
+	insertAtCursor(document.getElementById("answer"), 'ù')
+	document.getElementById("answer").focus();
+}
+
+function savedata() {
+	newQuestion();
+	return true;
+}
+
+
+
+function insertAtCursor(myField, myValue) {
+    //IE support
+    if (document.selection) {
+        myField.focus();
+        sel = document.selection.createRange();
+        sel.text = myValue;
+    }
+    //MOZILLA and others
+    else if (myField.selectionStart || myField.selectionStart == '0') {
+        var startPos = myField.selectionStart;
+        var endPos = myField.selectionEnd;
+        myField.value = myField.value.substring(0, startPos)
+            + myValue
+            + myField.value.substring(endPos, myField.value.length);
+	myField.selectionEnd = startPos + myValue.length;
+    } else {
+        myField.value += myValue;
+    }
+}
+
+
+
+function validateAnswer() {
+	var x = document.forms["seasonQuiz"]["answer"].value;
+	x = x.toLowerCase();
+	x = x.trim();
+	//alert("you wrote");
+	const result = document.querySelector('result');
+	if (x == a[0].toLowerCase() || x == a[2].toLowerCase()) {
+		result.style.color = "green";
+		result.textContent = "Correct!";
+		return true;	
+	} else {	
+		result.style.color = "red";
+		result.textContent = "Not quite!";
+		return false;
+	}
+}
+
+
+function newQuestion() {
+	var last_season = window.localStorage.getItem('last_season')
+	do {
+		a = getCombo();
+	}
+	while (a[0] == last_season);
+	season = a[0];
+	url = a[1];
+	window.localStorage.setItem('last_season', season)
+
+	const seasonimage = document.querySelector('seasonimage');
+	seasonimage.innerHTML = "<img src="+url+" style='border: solid 2px black;'>";
+}
+
+function giveHint() {
+	hintno ++;
+	const hint = document.querySelector('hint');
+	hint.textContent = a[0].substr(0,hintno);
+}
+
+function getCombo() {
+
+   var random_season = Math.floor(Math.random() * indefinite_seasons.length);
+   var season = indefinite_seasons[random_season];
+   var alt_season = definite_seasons[random_season]
+   var url = 'gamefiles/seasons_quiz/'+season+'.jpg';
+   return [season, url, alt_season, (random_season+1)];
+}
+
+
+var indefinite_seasons = ['earrach', 'foghar', 'geamhradh', 'samhradh']
+var definite_seasons = ['an t-earrach', 'am foghar', 'an geamhradh', 'an samhradh']
+
+
+
+var hintno = 0;
+
+
+</script>
+</div>
+</center>
+</div>
+<br><br>
+<br><br>
+<br><br>
+<div id="footerdiv">
+<iframe id="footer" src="../../footer.htm" frameBorder="0" scrolling="no"></iframe>
+</div>
+</body>
+</html>

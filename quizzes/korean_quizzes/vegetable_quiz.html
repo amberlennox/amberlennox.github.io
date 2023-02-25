@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<style>
+	@import "../../main.css";
+	.pronoun_title{border: solid 1px black; padding:5px; background-color:#fff;}
+	.pronoun_cell{padding:5px}
+	.english_pronoun{background-color:rgba(255, 255, 255, 0.5); padding-left:10px;}
+	.accentbutton{        background-color: #CBBD94;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        margin:10px; font-size:20px;}
+	input[type=checkbox] {width:20px; height:20px;}
+	.submitandhint{        background-color: #AEA179;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	#app{background-color:rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	.fruitexlp{padding-right:50px;}
+
+	#answer{ font-size:20px;}
+
+	h8{font-size:22px;}
+	h9{font-size:38px; font-weight:bold;}
+</style>
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+<script> 
+$(function(){
+  $("#header").load("../../header.htm"); 
+  $("#footer").load("../../footer.htm"); 
+});
+</script> 
+<title>Korean Vegetables Quiz</title>
+
+
+<html>
+
+<body onload="savedata()">
+<div id="header"></div>
+
+
+<br>
+
+<meta charset="utf-8">
+
+<div class="main">
+<br>
+
+<center>
+<div class="mytext">
+<h1>Korean Vegetables Quiz</h1>
+
+<div align="center">
+
+ <form name="fruitQuiz" onsubmit="return validateAnswer()" action="">
+      	
+<div style=""><br><fruitimage></fruitimage></div><br>
+	<input type="text" name="answer" id="answer" autofocus="autofocus" autocomplete="off"> <br>
+<result></result>
+<br>
+	<br>
+	<button type="submit" class="submitandhint">Submit</button> <button type="button" onclick="giveHint()" class="submitandhint">Hint (Hangul)</button> <button type="button" onclick="giveHintr()" class="submitandhint">Hint (Romanised)</button> <br>
+	<font size="3"><hint></hint><br><hintr></hintr> </font>
+
+   </form><br>
+
+</font>
+<center>
+<br><br>Enter the vegetable corresponding to the number/picture shown. <br>A cheat sheet is down below. <br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+
+Vocab corresponds to <a href="https://www.fluentin3months.com/food-in-korean/" target="_blank">Korean food terms</a>.
+<br><br>
+<b>Cheat Sheet</b>
+<table>
+<tr>
+	<td><img src="gamefiles/vegetables_quiz/aubergine_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="vegetablesexlp"><h9>가지 (gaji)</h9><p><h8>Aubergine</h8><p>
+	<td><img src="gamefiles/vegetables_quiz/beans_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="vegetablesexlp"><h9>콩 (kong)</h9><p><h8>Beans</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/vegetables_quiz/broccoli_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="vegetablesexlp"><h9>브로콜리 (beulokolli)</h9><p><h8>Broccoli</h8><p>
+	<td><img src="gamefiles/vegetables_quiz/cabbage_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="vegetablesexlp"><h9>양배추 (yangbaechu)</h9><p><h8>Cabbage</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/vegetables_quiz/carrot_name.jpg" style="width:300px;border: solid 1px black;"></td>		
+		<td class="vegetablesexlp"><h9>당근 (danggeun)</h9><p><h8>Carrot</h8><p>
+	<td><img src="gamefiles/vegetables_quiz/cauliflower_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="vegetablesexlp"><h9>콜리플라워 (kollipeullawo)</h9><p><h8>Cauliflower</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/vegetables_quiz/corn_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="vegetablesexlp"><h9>옥수수 (oksusu)</h9><p><h8>Corn</h8><p>
+	<td><img src="gamefiles/vegetables_quiz/cucumber_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="vegetablesexlp"><h9>오이 (oi)</h9><p><h8>Cucumber</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/vegetables_quiz/garlic_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="vegetablesexlp"><h9>마늘 (maneul)</h9><p><h8>Garlic</h8><p>
+	<td><img src="gamefiles/vegetables_quiz/ginger_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="vegetablesexlp"><h9>생강 (saenggang)</h9><p><h8>Ginger</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/vegetables_quiz/lettuce_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="vegetablesexlp"><h9>상추 (sangchu)</h9><p><h8>Lettuce</h8><p>
+	<td><img src="gamefiles/vegetables_quiz/onion_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="vegetablesexlp"><h9>양파 (yangpa)</h9><p><h8>Onion</h8><p>
+
+
+
+</tr>
+
+<tr>
+	<td><img src="gamefiles/vegetables_quiz/potato_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="vegetablesexlp"><h9>감자 (gamja)</h9><p><h8>Potato</h8><p>
+	<td><img src="gamefiles/vegetables_quiz/vegetables_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="vegetablesexlp"><h9>야채 (yachae)</h9><p><h8>vegetabless</h8><p>
+
+
+
+</tr>
+
+</table>
+</center>
+<br><br>
+If you find this useful fire me an e-mail at arelennox@gmail.com and let me know! I want to make more similar programs for Korean (or other languages) - but only if it's a thing people actually use. If you have any issues or requests for other quizes, let me know that too. <br><br>
+The game is completely free, but consider a donation to <a href="https://www.refuweegee.co.uk/">Refuweegee</a>* if you use it often.<br>
+<b>*Refuweegee are currently not accepting donations due to COVID-19, consider donating to <a href="https://scotland.shelter.org.uk/">Shelter Scotland</a> instead.</b>
+<br><br>
+</div>
+<script>
+
+function add_a() {
+	insertAtCursor(document.getElementById("answer"), 'ㅂ')
+	document.getElementById("answer").focus();
+}
+function add_o() {
+	insertAtCursor(document.getElementById("answer"), 'ㅣ')
+	document.getElementById("answer").focus();
+}
+
+function savedata() {
+	newQuestion();
+	return true;
+}
+
+
+
+function insertAtCursor(myField, myValue) {
+    //IE support
+    if (document.selection) {
+        myField.focus();
+        sel = document.selection.createRange();
+        sel.text = myValue;
+    }
+    //MOZILLA and others
+    else if (myField.selectionStart || myField.selectionStart == '0') {
+        var startPos = myField.selectionStart;
+        var endPos = myField.selectionEnd;
+        myField.value = myField.value.substring(0, startPos)
+            + myValue
+            + myField.value.substring(endPos, myField.value.length);
+	myField.selectionEnd = startPos + myValue.length;
+    } else {
+        myField.value += myValue;
+    }
+}
+
+
+
+function validateAnswer() {
+	var x = document.forms["fruitQuiz"]["answer"].value;
+	x = x.toLowerCase();
+	x = x.trim();
+	//alert("you wrote");
+	const result = document.querySelector('result');
+	if (x == a[0].toLowerCase() || x == a[2].toLowerCase()) {
+		result.style.color = "green";
+		result.textContent = "Correct!";
+		return true;	
+	} else {	
+		result.style.color = "red";
+		result.textContent = "Not quite!";
+		return false;
+	}
+}
+
+
+function newQuestion() {
+	var last_fruit = window.localStorage.getItem('last_fruit')
+	do {
+		a = getCombo();
+	}
+	while (a[0] == last_fruit);
+	fruit = a[0];
+	url = a[1];
+	window.localStorage.setItem('last_fruit', fruit)
+	const fruitimage = document.querySelector('fruitimage');
+	fruitimage.innerHTML = "<img src="+url+" style='border: solid 2px black;'>";
+}
+
+function giveHint() {
+	hintno ++;
+	const hint = document.querySelector('hint');
+	hint.textContent = a[0].substr(0,hintno);
+}
+
+function giveHintr() {
+	hintnor ++;
+	const hintr = document.querySelector('hintr');
+	hintr.textContent = a[2].substr(0,hintnor);
+}
+
+function getCombo() {
+
+   var random_fruit = Math.floor(Math.random() * indefinite_fruit.length);
+   var fruit = anglicized_fruit[random_fruit];
+   var alt_fruit = korean_fruit[random_fruit]
+   var url = 'gamefiles/vegetables_quiz/'+indefinite_fruit[random_fruit]+'.jpg';
+   return [fruit, url, alt_fruit, (random_fruit+1)];
+}
+
+
+var indefinite_fruit = ['aubergine', 'beans', 'broccoli', 'cabbage', 'carrot', 'cauliflower', 'corn', 'cucumber', 'garlic', 'ginger', 'lettuce', 'onion', 'potato', 'vegetables']
+var korean_fruit = ['gaji', 'kong', 'beulokolli', 'yangbaechu', 'danggeun', 'kollipeullawo', 'oksusu', 'oi', 'maneul', 'saenggang', 'sangchu', 'yangpa', 'gamja', 'yachae']
+var anglicized_fruit = ['가지', '콩', '브로콜리', '양배추', '당근', '콜리플라워', '옥수수', '오이', '마늘', '생강', '상추', '양파', '감자 ', '야채']
+
+
+var hintno = 0;
+var hintnor = 0;
+
+</script>
+</div>
+</center>
+</div>
+<br><br>
+<br><br>
+<br><br>
+<div id="footerdiv">
+<iframe id="footer" src="../../footer.htm" frameBorder="0" scrolling="no"></iframe>
+</div>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<style>
+	@import "../../main.css";
+	.pronoun_title{border: solid 1px black; padding:5px; background-color:#fff;font-size:20px;width:150px; text-align:center;}
+	.pronoun_cell{padding:5px}
+	.explanation{background-color:rgba(255, 255, 255, 0.5); padding-left:10px;font-size:17px;}
+	.accentbutton{        background-color: #CBBD94;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        margin:10px; font-size:20px;}
+	input[type=checkbox] {width:20px; height:20px;}
+	.submitandhint{        background-color: #AEA179;
+        color: #FFFFFF;
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	#app{background-color:rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin:10px; font-size:20px;}
+
+	#answer{ font-size:20px;}
+</style>
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+</script>
+<script> 
+$(function(){
+  $("#header").load("../../header.htm"); 
+  $("#footer").load("../../footer.htm"); 
+});
+</script> 
+<title>Korean Verb Quiz</title>
+
+
+<html>
+
+<body onload="savedata()">
+<div id="header"></div>
+
+<br>
+<br>
+
+<meta charset="utf-8">
+
+<div class="main">
+<br>
+
+<center>
+<div class="mytext">
+Welcome to my verb quiz
+<h1>Korean Verb Quiz</h1>
+
+<div>
+
+ <form name="pronounQuiz" onsubmit="return validateAnswer()" action="">
+	<div style=""><br><verbimage></verbimage></div><br>
+	<input type="text" name="answer" id="answer" autofocus="autofocus"> <result></result>
+	<br>
+	<button type="submit" class="submitandhint">Submit</button> <button type="button" onclick="giveHint()" class="submitandhint">Hint</button> 
+	<font size="3"><hint></hint> </font>
+   </form><br>
+
+
+<font size="5">Test me on: <br>
+<input type="checkbox" id="buy" onclick="checkBox('buy')"> 
+<label for="buy">사다 (sada)</label> 
+<input type="checkbox" id="come" onclick="checkBox('come')"> 
+<label for="come">오다 (oda)</label> 
+<input type="checkbox" id="drink" onclick="checkBox('drink')"> 
+<label for="drink">마시다 (masida)</label> 
+<input type="checkbox" id="eat" onclick="checkBox('eat')"> 
+<label for="eat">먹다 (meokda)</label> 
+<input type="checkbox" id="give" onclick="checkBox('give')"> 
+<label for="give">주다 (juda)</label> 
+<input type="checkbox" id="go" onclick="checkBox('go')"> 
+<label for="go">가다 (gada)</label> <br>
+<input type="checkbox" id="hear" onclick="checkBox('hear')"> 
+<label for="hear">듣다 (deutda)</label> 
+<input type="checkbox" id="learn" onclick="checkBox('learn')"> 
+<label for="learn">배우다 (baeuda)</label> 
+<input type="checkbox" id="read" onclick="checkBox('read')"> 
+<label for="read">읽다 (ikda)</label> 
+<input type="checkbox" id="see" onclick="checkBox('see')"> 
+<label for="see">보다 (boda)</label> 
+<input type="checkbox" id="walk" onclick="checkBox('walk')"> 
+<label for="walk">걷다 (geotda)</label><br> 
+<input type="checkbox" id="write" onclick="checkBox('write')"> 
+<label for="write">쓰다 (sseuda)</label> 
+<input type="checkbox" id="jump" onclick="checkBox('jump')"> 
+<label for="jump">점프하다 (jeompeuhada)</label> 
+<input type="checkbox" id="stand" onclick="checkBox('stand')"> 
+<label for="stand">서다 (seoda)</label> 
+<input type="checkbox" id="run" onclick="checkBox('run')"> 
+<label for="run">달리다 (dallida)</label> 
+<input type="checkbox" id="swim" onclick="checkBox('swim')"> 
+<label for="swim">수영하다 (suyeonghada)</label> 
+<input type="checkbox" id="sit" onclick="checkBox('sit')"> 
+<label for="sit">앉다 (anjda)</label> 
+<input type="checkbox" id="yawn" onclick="checkBox('yawn')"> 
+<label for="yawn">하품하다 (hapumhada)</label> 
+</font>
+
+
+<br><br><br><br><br><br><br><br><br><br>
+<center>
+<b>Cheat Sheet</b>
+<table>
+<tr>
+	<td><img src="gamefiles/verbs_quiz/buy_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>사다 (sada)</h9><p><h8>To Buy</h8><p>
+	<td><img src="gamefiles/verbs_quiz/come_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>오다 (oda)</h9><p><h8>To Come</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/verbs_quiz/drink_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>마시다 (masida)</h9><p><h8>To Drink</h8><p>
+	<td><img src="gamefiles/verbs_quiz/eat_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>먹다 (meokda)</h9><p><h8>To Eat</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/verbs_quiz/give_name.jpg" style="width:300px;border: solid 1px black;"></td>		
+		<td class="verbexlp"><h9>주다 (juda)</h9><p><h8>To Give</h8><p>
+	<td><img src="gamefiles/verbs_quiz/go_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>가다 (gada)</h9><p><h8>To Go</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/verbs_quiz/hear_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>듣다 (deutda)</h9><p><h8>To Hear</h8><p>
+	<td><img src="gamefiles/verbs_quiz/learn_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>배우다 (baeuda)</h9><p><h8>To Learn</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/verbs_quiz/read_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>읽다 (ikda)</h9><p><h8>To Read</h8><p>
+	<td><img src="gamefiles/verbs_quiz/see_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>보다 (boda)</h9><p><h8>To See</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/verbs_quiz/walk_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>걷다 (geotda)</h9><p><h8>To Walk</h8><p>
+	<td><img src="gamefiles/verbs_quiz/write_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>쓰다 (sseuda)</h9><p><h8>To Write</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/verbs_quiz/jump_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>점프하다 (jeompeuhada)</h9><p><h8>To Jump</h8><p>
+	<td><img src="gamefiles/verbs_quiz/stand_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>서다 (seoda)</h9><p><h8>To Stand</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/verbs_quiz/run_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>달리다 (dallida)</h9><p><h8>To Run</h8><p>
+	<td><img src="gamefiles/verbs_quiz/swim_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>수영하다 (suyeonghada)</h9><p><h8>To Swim</h8><p>
+</tr>
+<tr>
+	<td><img src="gamefiles/verbs_quiz/sit_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>앉다 (anjda)</h9><p><h8>To Sit</h8><p>
+	<td><img src="gamefiles/verbs_quiz/yawn_name.jpg" style="width:300px;border: solid 1px black;"></td>
+		<td class="verbexlp"><h9>하품하다 (hapumhada)</h9><p><h8>To Yawn</h8><p>
+</tr>
+</table>
+</center>
+<br><br>
+If you find this useful fire me an e-mail at arelennox@gmail.com and let me know! I want to make more similar programs for Korean (or other languages) - but only if it's a thing people actually use. If you have any issues or requests for other quizes, let me know that too. <br><br>
+The game is completely free, but consider a donation to <a href="https://www.refuweegee.co.uk/">Refuweegee</a>* if you use it often.<br>
+<b>*Refuweegee are currently not accepting donations due to COVID-19, consider donating to <a href="https://scotland.shelter.org.uk/">Shelter Scotland</a> instead.</b>
+<br><br>
+</div>
+<script>
+
+
+function insertAtCursor(myField, myValue) {
+    //IE support
+    if (document.selection) {
+        myField.focus();
+        sel = document.selection.createRange();
+        sel.text = myValue;
+    }
+    //MOZILLA and others
+    else if (myField.selectionStart || myField.selectionStart == '0') {
+        var startPos = myField.selectionStart;
+        var endPos = myField.selectionEnd;
+        myField.value = myField.value.substring(0, startPos)
+            + myValue
+            + myField.value.substring(endPos, myField.value.length);
+	myField.selectionEnd = startPos + myValue.length;
+    } else {
+        myField.value += myValue;
+    }
+}
+function insertAtCursor(myField, myValue) {
+    //IE support
+    if (document.selection) {
+        myField.focus();
+        sel = document.selection.createRange();
+        sel.text = myValue;
+    }
+    //MOZILLA and others
+    else if (myField.selectionStart || myField.selectionStart == '0') {
+        var startPos = myField.selectionStart;
+        var endPos = myField.selectionEnd;
+        myField.value = myField.value.substring(0, startPos)
+            + myValue
+            + myField.value.substring(endPos, myField.value.length);
+	myField.selectionEnd = startPos + myValue.length;
+    } else {
+        myField.value += myValue;
+    }
+}
+
+function savedata() {
+	for (i=0; i <all_prepositions.length; i++) {
+		console.log(i);
+		var data = window.localStorage.getItem(all_strings[i]);
+		if (data == 'true') {
+			const result = document.querySelector('result');
+			document.getElementById(all_strings[i]).checked = true;
+			if (! prepositions.includes(all_prepositions[i])) {
+				prepositions.push(all_prepositions[i]);
+				}
+		} else {
+			document.getElementById(all_strings[i]).checked = false;
+			if (prepositions.includes(all_prepositions[i])) {
+				var index = prepositions.indexOf(all_prepositions[i]);
+				prepositions.splice(index, 1);
+				}
+		}
+	}
+	// REMOVE THIS
+	//const result = document.querySelector('result');
+	//result.textContent = prepositions;
+	//const mystreak = document.querySelector('streak');
+	//mystreak.textContent = streak;
+
+	//const myhigh_score = document.querySelector('high_score');
+	//myhigh_score.textContent = high_score;
+
+	window.localStorage.setItem('prepositions', prepositions);
+	newQuestion();
+	return [prepositions];
+}
+
+function checkBox(mystring) {
+	mybox = document.getElementById(mystring);
+        if(mybox.checked === true){
+		window.localStorage.setItem(mystring, true);
+	} else {
+		window.localStorage.setItem(mystring, false);
+	}
+}
+
+
+
+function loaddata() {
+	//window.localStorage.setItem('key', 'boo');
+        if(document.getElementById('aig').checked){
+		window.localStorage.setItem('key', true);
+		document.getElementById("aig").checked = true;
+	} else {
+		window.localStorage.setItem('key', 'false');
+	}
+}
+
+function addPreposition(myinput) {
+	const test = document.querySelector('test');
+	test.textContent = myinput;
+	prepositions.push(myinput);
+}
+
+
+function validateAnswer() {
+	var x = document.forms["pronounQuiz"]["answer"].value;
+	x = x.toLowerCase();
+	x = x.trim();
+	//alert("you wrote");
+	const result = document.querySelector('result');
+	if (x == a[1] || x == a[3]) {
+		result.style.color = "green";
+		result.textContent = "Correct!";
+		var audio = new Audio(a[3]);
+		audio.play();
+		streak++;
+		if (streak > high_score) {
+			window.localStorage.setItem('high_score', streak);
+			}
+		window.localStorage.setItem('streak', streak);
+		return true;	
+	} else {	
+		result.style.color = "red";
+		result.textContent = "Not quite!";
+		streak = 0;
+		window.localStorage.setItem('streak', streak);
+		return false;
+	}
+}
+
+
+function newQuestion() {
+	a = getCombo();
+	preposition1 = a[0];
+	//global prep_pronoun = a[2]
+	url = a[2];
+
+	const verbimage = document.querySelector('verbimage');
+	verbimage.innerHTML = "<img src="+url+" style='border: solid 2px black;'>";
+}
+
+function giveHint() {
+	hintno ++;
+	const hint = document.querySelector('hint');
+	hint.textContent = a[2].substr(0,hintno);
+}
+
+function getCombo() {
+   var random_preposition = Math.floor(Math.random() * prepositions.length);
+   var preposition = prepositions[random_preposition][0];
+   //console.log(preposition);
+   //console.log(pronoun);
+   var anglicized_verb = prepositions[random_preposition][1];
+   var korean_verb = prepositions[random_preposition][2]
+   //console.log(prep_pronoun);
+   var url = 'gamefiles/verbs_quiz/'+prepositions[random_preposition][0]+'.jpg';
+   //console.log(url);
+   return [preposition, anglicized_verb, url, korean_verb];
+}
+
+var buy = ['buy', 'sada', '사다'];
+var come = ['come', 'oda', '오다'];
+var drink = ['drink', 'masida', '마시다'];
+var eat = ['eat', 'meokda', '먹다'];
+var give = ['give', 'juda', '주다'];
+var go = ['go', 'gada', '가다'];
+var hear = ['hear', 'deutda', '듣다'];
+var learn = ['learn','baeuda', '배우다'];
+var read = ['read', 'ikda', '읽다'];
+var see = ['see', 'boda', '보다'];
+var walk = ['walk', 'geotda', '걷다'];
+var write = ['write', 'sseuda', '쓰다'];
+var jump = ['jump', 'jeompeuhada', '점프하다'];
+var stand = ['stand', 'seoda', '서다'];
+var run = ['run','dallida', '달리다'];
+var swim = ['swim', 'suyeonghada', '수영하다'];
+var sit = ['sit', 'anjda', '앉다'];
+var yawn = ['yawn', 'hapumhada', '하품하다'];
+
+var all_prepositions = [buy, come, drink, eat, give, go, hear, learn, read, see, walk, write, jump, stand, run, swim, sit, yawn];
+var all_strings = ['buy', 'come', 'drink', 'eat', 'give', 'go', 'hear', 'learn', 'read', 'see', 'walk', 'write', 'jump', 'stand', 'run', 'swim', 'sit', 'yawn'];
+
+
+
+
+if (localStorage.getItem("streak") === null) {
+	var streak = 0;
+} else {
+	var streak = window.localStorage.getItem('streak');
+}
+
+if (localStorage.getItem("high_score") === null) {
+	var high_score = 0;
+} else {
+	var high_score = window.localStorage.getItem('high_score');
+}
+
+var hintno = 0;
+//var prepositions = savedata() 
+var prepositions = [come];
+//var prepositions = [aig, , ann, as1, bho, de, do1, fo, gu, le, mu, o, ri, ro, thar, tro];
+var pronouns = ['pronoun', 'mi', 'thu', 'e', 'i', 'sinn', 'sibh', 'iad'];
+//var a = getCombo();
+//preposition1 = a[0]
+//pronoun1 = a[1]
+
+
+//const preposition = document.querySelector('preposition');
+//preposition.textContent = preposition1;
+//const pronoun = document.querySelector('pronoun');
+//pronoun.textContent = pronoun1;
+
+</script>
+</div>
+</center>
+</div>
+<br><br>
+<br><br>
+<br><br>
+<div id="footerdiv">
+<iframe id="footer" src="../../footer.htm" frameBorder="0" scrolling="no"></iframe>
+</div>
+</body>
+</html>
