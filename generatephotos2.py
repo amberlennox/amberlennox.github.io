@@ -132,6 +132,20 @@ for i in reversed(os.walk('Photos').next()[1]):
         if 'page' in j or 'small' in j:
             break
 
+        im_resize = Image.open('Photos/%s/%s' %(i, j))
+        imwidth, imheight = im_resize.size
+
+
+        if imwidth > 1790 or imheight > 1790:
+            max_size = 1780.0
+            new_size = np.round(min(max_size/imwidth, max_size/imheight)*np.array((imwidth, imheight)))
+            im_resize.thumbnail(new_size)
+
+
+        im_resize.save('Photos/%s/%s' %(i, j))
+
+
+
         if make_thumbnails == 'yes':
 
             #Check if a thumbnail has already been generated for this photo
@@ -141,7 +155,8 @@ for i in reversed(os.walk('Photos').next()[1]):
 					
                 #Open image
                 im = Image.open('Photos/%s/%s' %(i, j))
-					
+
+
                 #Load up image size
                 imwidth, imheight = im.size
 
@@ -150,7 +165,7 @@ for i in reversed(os.walk('Photos').next()[1]):
                     mybox = (0,0,imwidth, int(imwidth/1.7))
                 else:
                     mybox = (0,int(imheight/5),imwidth,int(imwidth/1.7)+int(imheight/5))
-
+                
                 #Crop photo
                 im = im.crop(box=mybox)
 
