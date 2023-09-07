@@ -201,7 +201,7 @@ for i in reversed(os.walk('Photos').next()[1]):
 
 f.write(""" </tr></table></div>""")
 #Load up iframe
-f.write("""<iframe name="pictureframe" src='%s' frameBorder="0" width="100%%" style="overflow:visible;height:2000px;"></iframe><br><br></td></tr></table> \n """ %(target))
+f.write("""<iframe name="pictureframe" src='%s' frameBorder="0" width="100%%" style="overflow:visible;height:4000px;"></iframe><br><br></td></tr></table> \n """ %(target))
 
 f.write("""</ul></div>""")
 
