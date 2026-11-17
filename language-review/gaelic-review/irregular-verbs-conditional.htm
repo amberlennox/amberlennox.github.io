@@ -1,0 +1,349 @@
+
+<style>
+.mytitle{padding-left:20px; color:#AB9B69 ; font-size: 20px; font-weight: bold;}
+
+body {
+text-align:center;
+font-size:3vw;
+  font-family: "Times New Roman", serif; /* pick one */
+}
+.table_title {font-weight:bold;}
+.table_entry {font-weight:normal;}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+.navbar_xo {
+  overflow: hidden;
+  background-color: #A75FD3;
+margin-bottom:10px;
+
+}
+
+.navbar_xo a, .dropdown_xo .dropbtn_xo {
+  font-size:4vw;
+  padding: 14px 16px;
+  background-color:#A75FD3;
+  color: white;
+}
+
+.navbar_xo a {
+  float:left;
+  text-align: center;
+  text-decoration: none;
+
+}
+
+.dropdown_xo {
+  float: left;
+  overflow: hidden;
+}
+
+input, button {
+font-size:6vw;
+}
+
+.dropdown_xo .dropbtn_xo {
+  border: none;
+  outline: none;
+  margin: 0;
+}
+
+/* desktop styles */
+@media only screen and (min-width: 1024px) {
+
+input, button, body {
+font-size:1vw;
+}
+
+.navbar_xo a, .dropdown_xo .dropbtn_xo {
+  font-size:1vw;}
+
+.navbar_xo a  {
+  float: left;
+  
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color:#A75FD3;}
+
+.dropdown_xo .dropbtn_xo {
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+background-color:#A75FD3;}
+
+#content {
+padding-left: 30%;
+padding-right:30%;}
+
+.navbar_xo {
+margin-left: 30%;
+margin-right:30%;}
+
+}
+
+.navbar_xo a:hover, .dropdown_xo:hover .dropbtn_xo {
+  background-color: #4B8EFF;
+}
+
+.dropdown-content_xo {
+  display: none;
+  position: absolute;
+  background-color: #4B8EFF;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 5;
+}
+
+.dropdown-content_xo a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  position: relative;
+  background-color:#f5eaf5;
+  z-index: 5;
+}
+
+.dropdown-content_xo a:hover {
+  background-color: #d7bad5;
+  z-index: 5;
+}
+
+.dropdown_xo:hover .dropdown-content_xo {
+  display: block;
+  z-index: 5;
+}
+
+.tinyflag{width:30px;}
+
+</style>
+<title>Amber Lennox</title>
+<!-- <h class="mytitle">Amber Lennox</h> -->
+<img src="https://amberlennox.github.io/headerimage.png">
+<div class="navbar_xo">
+  <a href="../../index.htm" target="_parent">Home</a>
+  <a href="../../photography.htm" target="_parent">Photography</a>
+  <div class="dropdown_xo">
+    <button class="dropbtn_xo">Languages
+    </button>
+    <div class="dropdown-content_xo">
+      <a href="../../gaelic-review.htm"><img src="https://amberlennox.github.io/quizzes/gaelic_quizzes/flag.png" class="tinyflag"> Gaelic</a>
+      <a href="../../welsh-review.htm"><img src="https://amberlennox.github.io/quizzes/welsh_quizzes/flag.png" class="tinyflag"> Welsh</a>
+      <a href="../../finnish-review.htm"><img src="https://amberlennox.github.io/quizzes/finnish_quizzes/flag.png" class="tinyflag"> Finnish</a>
+      <a href="../../korean_review.htm"><img src="https://amberlennox.github.io/quizzes/korean_quizzes/flag.png" class="tinyflag"> Korean</a>
+    </div>
+  </div> 
+  <div class="dropdown_xo">
+    <button class="dropbtn_xo">Writing
+    </button>
+    <div class="dropdown-content_xo">
+      <a href="../../scientific.htm">Scientific</a>
+      <a href="../../graph.htm">Graph</a>
+    </div>
+  </div> 
+  <div class="dropdown_xo">
+    <button class="dropbtn_xo"> About
+    </button>
+    <div class="dropdown-content_xo">
+      <a href="../../about.htm">Me</a>
+      <a href="../../CV_Amber_Lennox_onlineversion.pdf" target="_blank">CV</a>
+    </div>
+  </div> 
+</div>
+
+<body onload="new_saveddata()">
+
+<div id="content">
+<h1> Irregular Verbs (Conditional Tense) Quiz </h1> 
+        
+<div>
+
+
+<form name="theQuiz" onsubmit="return validateAnswer()" action="">
+<br>
+
+<br>
+<font size="6"><noun></noun> @ <pronoun></pronoun> = ?</font>
+<br><br>
+<input type="text" name="answer" id="answer" autofocus="autofocus"> <br><result></result>
+<br>
+<button type="submit" class="submitandhint">Submit</button> <button type="button" onclick="giveHint()" class="submitandhint">Hint</button> 
+<font size="3"><br><hint></hint> </font>
+</form><br>
+  
+    <button type="button" onclick="return add_a()" class="accentbutton">à</button>
+    <button type="button" onclick="return add_e()" class="accentbutton">è</button>
+    <button type="button" onclick="return add_i()" class="accentbutton">ì</button>
+    <button type="button" onclick="return add_o()" class="accentbutton">ò</button>
+    <button type="button" onclick="return add_u()" class="accentbutton">ù</button>
+     
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+         
+    <br><br>
+    <table>
+        <tr>
+         <td></td> <td class="table_title">Beir</td> <td class="table_title">Cluinn</td> <td class="table_title">Ruig</td> <td class="table_title">Dèan</td> <td class="table_title">Rach</td> <td class="table_title">Faic</td> <td class="table_title">Faigh</td> <td class="table_title">Abair</td> <td class="table_title">Thig</td> <td class="table_title">Thoir</td> 
+    </tr>
+     <tr>
+        <td class="table_title">n.e.*</td> <td class="table_entry">Bheireadh</td> <td class="table_entry">Chluinneadh</td> <td class="table_entry">Ruigeadh</td> <td class="table_entry">Dhèanadh</td> <td class="table_entry">Rachadh</td> <td class="table_entry">Chitheadh</td> <td class="table_entry">Gheibheadh</td> <td class="table_entry">Chanadh</td> <td class="table_entry">Thigeadh</td> <td class="table_entry">Bheireadh</td> 
+        </tr>
+         <tr>
+        <td class="table_title">Cha</td> <td class="table_entry">Cha bheireadh</td> <td class="table_entry">Cha chluinneadh</td> <td class="table_entry">Cha ruigeadh</td> <td class="table_entry">Cha dèanadh</td> <td class="table_entry">Cha rachadh</td> <td class="table_entry">Chan fhaiceadh</td> <td class="table_entry">Chan fhaigheadh</td> <td class="table_entry">Cha chanadh</td> <td class="table_entry">Cha tigeadh</td> <td class="table_entry">Cha toireadh</td> 
+        </tr>
+         <tr>
+        <td class="table_title">An</td> <td class="table_entry">Am beireadh</td> <td class="table_entry">An cluinneadh</td> <td class="table_entry">An ruigeadh</td> <td class="table_entry">An dèanadh</td> <td class="table_entry">An rachadh</td> <td class="table_entry">Am faiceadh</td> <td class="table_entry">Am faigheadh</td> <td class="table_entry">An canadh</td> <td class="table_entry">An tigeadh</td> <td class="table_entry">An toireadh</td> 
+        </tr>
+         <tr>
+        <td class="table_title">Nach</td> <td class="table_entry">Nach beireadh</td> <td class="table_entry">Nach cluinneadh</td> <td class="table_entry">Nach ruigeadh</td> <td class="table_entry">Nach dèanadh</td> <td class="table_entry">Nach rachadh</td> <td class="table_entry">Nach fhaiceadh</td> <td class="table_entry">Nach fhaigheadh</td> <td class="table_entry">Nach canadh</td> <td class="table_entry">Nach tigeadh</td> <td class="table_entry">Nach toireadh</td> 
+        </tr>
+         
+    </table><br><br>
+*n.e. - neo-eisimeileach <i>[independent]</i> - The standard assertive or affirmative "yes" form of the verb.
+         <br><br>
+
+The conditional tense is the tense used to refer to what <i>would</i> happen. One might ask "An cluinneadh tu?" <i>[Would you hear?]</i> to which the response would be "Chluinneadh. Chluinninn." <i>[Yes. I would hear.]</i> <br><br>
+N.B. Two features of the conditional tense not tested in this quiz are featured in the above exchange. The first is that the second person pronoun <i>thu</i> is replaced with the form <i>tu</i>. The second is the special first person singular ending <i>ainn/inn</i> ("chluinninn" <i>[I would hear]</i>) that is mandatory in the conditional tense. There is an additional -amaid ("chluinniamaid" <i>[we would hear]</i>) first person plural ending that is optional. <br><br>The page <i>Parsing the Conditional Tense of Irregular Verbs</i> on <a href="https://taic.me.uk">Taic</a>, <a href="https://www.bbc.co.uk/bitesize/guides/z432jhv/revision/4">Writing the Conditional Tense</a> on BBC Bitesize, and Lesson 12 (page 167) from <i>Learn Gaelic in Twelve Weeks</i> are useful resources on the conditional tense. <br><br>
+    If you find this useful fire me an e-mail at arelennox@gmail.com and let me know! I want to make more similar programs for Gaelic (or other languages) - but only if it's a thing people actually use. If you have any issues or requests for other quizes, let me know that too. <br><br>
+    The game is completely free, but consider a donation to <a href="https://www.refuweegee.co.uk/">Refuweegee</a> or <a href="https://scotland.shelter.org.uk/">Shelter Scotland</a> if you use it often. </div>
+         
+    <script>
+         
+        function add_a() {
+            insertAtCursor(document.getElementById("answer"), 'à')
+                document.getElementById("answer").focus();
+                }
+function add_e() {
+            insertAtCursor(document.getElementById("answer"), 'è')
+                document.getElementById("answer").focus();
+                }
+function add_i() {
+            insertAtCursor(document.getElementById("answer"), 'ì')
+                document.getElementById("answer").focus();
+                }
+function add_o() {
+            insertAtCursor(document.getElementById("answer"), 'ò')
+                document.getElementById("answer").focus();
+                }
+function add_u() {
+            insertAtCursor(document.getElementById("answer"), 'ù')
+                document.getElementById("answer").focus();
+                }
+         
+
+    function insertAtCursor(myField, myValue) {
+        //IE support
+        if (document.selection) {
+            myField.focus();
+            sel = document.selection.createRange();
+            sel.text = myValue;
+        }
+        //MOZILLA and others
+        else if (myField.selectionStart || myField.selectionStart == '0') {
+            var startPos = myField.selectionStart;
+            var endPos = myField.selectionEnd;
+            myField.value = myField.value.substring(0, startPos)
+                + myValue
+                + myField.value.substring(endPos, myField.value.length);
+            myField.selectionEnd = startPos + myValue.length;
+        } else {
+            myField.value += myValue;
+        }
+    }
+        
+        
+function new_saveddata() {        
+
+    window.localStorage.setItem('nouns', nouns);
+	newQuestion();
+	return [nouns]; 
+}
+ 
+function checkBox(mystring) {
+    mybox = document.getElementById(mystring);
+    if(mybox.checked === true){
+        window.localStorage.setItem(mystring, true);
+    } else {
+        window.localStorage.setItem(mystring, false);
+    }
+}
+function checkSelection(mystring) {
+    mybox = document.getElementById(mystring);
+    if(mybox.checked === true){
+        window.localStorage.setItem(mystring, true);
+    } else {
+        window.localStorage.setItem(mystring, false);
+    }
+}
+
+
+
+function validateAnswer() {
+    var x = document.forms["theQuiz"]["answer"].value;
+    x = x.toLowerCase();
+    x = x.trim();
+    a[2] = a[2].toLowerCase();
+    a[2] = a[2].trim();
+    const result = document.querySelector('result');
+    if (x == a[2]) {
+        result.style.color = "green";
+        result.textContent = "Correct!";
+        return true;    
+    } else {    
+        result.style.color = "red";
+        result.textContent = "Not quite!";
+        return false;
+    }      
+}
+
+
+function newQuestion() {
+    a = getCombo();
+    noun1 = a[0];
+    pronoun1 = a[1];
+    const noun = document.querySelector('noun');
+    noun.textContent = noun1;
+    const pronoun = document.querySelector('pronoun');
+    pronoun.textContent = pronoun1;
+}
+
+function giveHint() {
+    hintno ++;
+    const hint = document.querySelector('hint');
+    hint.textContent = a[2].substr(0,hintno);
+}
+
+
+function getCombo() {
+    var random_noun = Math.floor(Math.random() * nouns.length);
+    var random_pronoun = (1 + Math.floor(Math.random() * 10));
+    var noun = nouns[random_noun][0];
+    var pronoun = pronouns[random_pronoun];
+    var prep_pronoun = nouns[random_noun][random_pronoun]
+    var url = '/pronouns/'+(noun)+'/'+prep_pronoun+'.mp3';
+    return [noun, pronoun, prep_pronoun, url];
+}
+
+
+var row1 = ["ne", "Bheireadh", "Chluinneadh", "Ruigeadh", "Dhèanadh", "Rachadh", "Chitheadh", "Gheibheadh", "Chanadh", "Thigeadh", "Bheireadh"];
+var row2 = ["Cha", "Cha bheireadh", "Cha chluinneadh", "Cha ruigeadh", "Cha dèanadh", "Cha rachadh", "Chan fhaiceadh", "Chan fhaigheadh", "Cha chanadh", "Cha tigeadh", "Cha toireadh"];
+var row3 = ["An", "Am beireadh", "An cluinneadh", "An ruigeadh", "An dèanadh", "An rachadh", "Am faiceadh", "Am faigheadh", "An canadh", "An tigeadh", "An toireadh"];
+var row4 = ["Nach", "Nach beireadh", "Nach cluinneadh", "Nach ruigeadh", "Nach dèanadh", "Nach rachadh", "Nach fhaiceadh", "Nach fhaigheadh", "Nach canadh", "Nach tigeadh", "Nach toireadh"]; 
+
+var all_nouns = [row1, row2, row3, row4]
+var all_strings = ["row1", "row2", "row3", "row4"]
+         
+var hintno = 0;
+var nouns = [row1, row2, row3, row4]
+    var pronouns = ["pronoun", "Beir", "Cluinn", "Ruig", "Dèan", "Rach", "Faic", "Faigh", "Abair", "Thig", "Thoir"] 
+    </script>
+        

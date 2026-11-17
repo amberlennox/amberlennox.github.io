@@ -1,0 +1,31 @@
+<b>Gaelic</b> is a minority language indigenous to Scotland and closely related to Irish and Manx. Through the Celtic language family, it is also (more distantly) related to Welsh, Cornish and Breton. It is distinct from <b>Scots</b>, another minority language native to Scotland.<br><br>
+I have been learning Gaelic for a short time, and it was because of the relatively small number of interactive activities available online that I chose to create some of my own review software to improve my recollection of Gaelic words.
+<br><br>
+These reviews are random word/image generators that aim to build quick recall of general vocabulary in simple topics. Because many studies have discouraged learning through translation, I have avoided using English prompts wherever possible, and instead base my questions on images or the Gaelic language itself. In every case I include a "cheat sheet" or language key at the bottom of the page which defines the correct answers as I have programmed them.<br><br>
+I make every effort to check my quizzes for errors against authoritative sources (primarily the LearnGaelic dictionary) but I cannot promise that I always use the most common or most natural word for a native speaker. I am simply a learner sharing my home-made memorization aids. I encourage you to check my quizzes against dictionaries or other resources yourself, and please contact me at arelennox@gmail.com if you have corrections or suggestions. <br><br>My quizzes should only be used to supplement other resources made by native and fluent speakers. To that end, I recommend <a href="https://learngaelic.net/">LearnGaelic</a>, <a href="https://www.taic.me.uk/">Taic</a>, <a href="https://www.youtube.com/channel/UC9QhuYhWNaOkzKXz8XSzAXQ">Gàidhlig Gu Leòr</a>, <a href="https://speakgaelic.scot/?lang=gd">Speak Gaelic</a>, <a href="https://www.duolingo.com/enroll/gd/en/Learn-Scottish%20Gaelic">DuoLingo</a> and <a href="https://www.smo.uhi.ac.uk/">Sabhal Mòr Ostaig</a> as reputable locations to learn the Gaelic language. <br><br>
+<div style="text-align:left;">
+<table><tr><td>
+<b><font size="4">Grammar</font></b>
+<ul><li><a href="language-review/gaelic-review/prepositional-pronoun-review.html">Prepositional Pronoun</a><br></li>
+<li><a href="language-review/gaelic-review/possession-review.html"> Possession </a><br></li>
+<li><a href="language-review/gaelic-review/irregular-verbs-past.htm"> Irregular Verbs - Past</a><br></li>
+<li><a href="language-review/gaelic-review/irregular-verbs-future.htm"> Irregular Verbs - Future</a><br></li>
+<li><a href="language-review/gaelic-review/irregular-verbs-conditional.htm"> Irregular Verbs - Conditional</a><br></li>
+</ul>
+<b><font size="4">Time</font></b>
+<ul>
+<li><a href="language-review/gaelic-review/days-review.html">The Days of the Week</a><br></li>
+<li><a href="language-review/gaelic-review/months-review.html"> Months of the Year</a><br></li>
+<li><a href="language-review/gaelic-review/seasons-review.html"> The Four Seasons</a><br></li>
+</ul>
+</td><td valign="top" style="padding-left:10px;">
+<b><font size="4">Nature</font></b>
+<ul><li><a href="language-review/gaelic-review/birds-review.html"> Birds</a><br></li>
+<li><a href="language-review/gaelic-review/animals-review.html">Animals</a><br></li>
+</ul>
+
+<b><font size="4">Household</font></b>
+<ul><li><a href="language-review/gaelic-review/bathroom-review.html"> Bathroom</a><br></li>
+</ul>
+</div>
+</td></tr></table>

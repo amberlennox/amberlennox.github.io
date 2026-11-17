@@ -1,0 +1,20 @@
+While working as a Developer Relations Engineer for the Scotland-based startup company <b>gdotv</b>, I wrote a number of technical articles and maintained a weekly publication. <br><br>
+These primarily focus on the applications of graph databases and graph visualisation.
+
+<a href="weekly-edge-sample.pdf">Weekly Edge sample</a> <br>[Summer 2026]
+
+A selection of articles:
+
+<div style="text-align:left;">
+<ul>
+<li><a href="articles/20260807-apache-data-fusion-for-graph-algorithms.pdf">Graph Algorithms on Billions of Edges with
+Apache DataFusion</a> [August 2026]</li>
+<li><a href="articles/20260723-ladybugdb-adbc-connector-snowflake-with-gdotv.pdf">LadybugDB and Snowflake: Building a
+Graph From a Relational Data Store</a> [July 2026]</li>
+<li><a href="articles/20260526-customer-360-recommendation-system-with-google-bigquery-graph.pdf">Build Your First Recommendation System with BigQuery Graph and gdotv</a> [May 2026]</li>
+<li><a href="articles/20250916-cognee-graphs-that-learn.pdf">A Spotlight on Cognee: A memory engine for
+language models</a> [September 2025]</li>
+</ul>
+</div>
+
+All articles are fully human-written.
