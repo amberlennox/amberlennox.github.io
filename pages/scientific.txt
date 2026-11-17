@@ -1,4 +1,4 @@
-While studying at the University of Illinois at Urbana Champaign I worked primarily on microwave telescopes (SPT, BICKEP/Keck and SPIDER) measuring the Cosmic Microwave Background (CMB) to better understand the early universe.
+While studying at the University of Illinois at Urbana Champaign I worked primarily on microwave telescopes (SPT, BICEP/Keck and SPIDER) measuring the Cosmic Microwave Background (CMB) to better understand the early universe.
 
 <div style="text-align:left;">
 My PhD Thesis:
